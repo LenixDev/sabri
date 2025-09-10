@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #1A1D23; /* sophisticated foundation */
+  --color-secondary: #2C3E50; /* professional depth */
+  --color-accent: #C9A96E; /* luxury highlight */
+  
+  /* Background Colors */
+  --color-background: #FAFBFC; /* clean canvas */
+  --color-surface: #F4F6F8; /* subtle elevation */
+  
+  /* Text Colors */
+  --color-text-primary: #2C3E50; /* professional authority */
+  --color-text-secondary: #6B7280; /* clear hierarchy */
+  
+  /* Status Colors */
+  --color-success: #059669; /* positive confirmation */
+  --color-warning: #D97706; /* attention without alarm */
+  --color-error: #DC2626; /* helpful guidance */
+  
+  /* Shadow Variables */
+  --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-none: none;
+  
+  /* Animation Variables */
+  --transition-smooth: all 300ms ease-out;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  
+  .font-accent {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-primary font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface text-primary font-medium px-6 py-3 rounded-lg border border-gray-200 transition-all duration-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50;
+  }
+  
+  .card-elevated {
+    @apply bg-white rounded-lg shadow-subtle transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .form-input {
+    @apply w-full px-4 py-3 border border-surface rounded-lg bg-white text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300;
+  }
+  
+  .text-hero {
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold text-primary leading-tight;
+  }
+  
+  .text-section-title {
+    @apply text-2xl md:text-3xl font-medium text-primary mb-6;
+  }
+  
+  .text-body {
+    @apply text-base text-text-primary leading-relaxed;
+  }
+  
+  .text-caption {
+    @apply text-sm text-text-secondary;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .shadow-premium {
+    box-shadow: var(--shadow-subtle);
+  }
+  
+  .bg-gradient-automotive {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  }
+  
+  .text-gradient-luxury {
+    background: linear-gradient(135deg, var(--color-accent) 0%, #B8860B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
