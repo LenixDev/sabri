@@ -581,7 +581,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary{
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(201 169 110 / var(--tw-bg-opacity, 1));
+  background-color: rgb(238 115 58 / var(--tw-bg-opacity, 1));
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 0.75rem;
@@ -604,7 +604,7 @@ h1, h2, h3, h4, h5, h6 {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-  --tw-ring-color: rgb(201 169 110 / var(--tw-ring-opacity, 1));
+  --tw-ring-color: rgb(238 115 58 / var(--tw-ring-opacity, 1));
   --tw-ring-opacity: 0.5;
 }
 
@@ -694,14 +694,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-input:focus{
   --tw-border-opacity: 1;
-  border-color: rgb(201 169 110 / var(--tw-border-opacity, 1));
+  border-color: rgb(238 115 58 / var(--tw-border-opacity, 1));
   outline: 2px solid transparent;
   outline-offset: 2px;
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(201 169 110 / var(--tw-ring-opacity, 1));
+  --tw-ring-color: rgb(238 115 58 / var(--tw-ring-opacity, 1));
 }
 
 .text-hero{
@@ -1119,11 +1119,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .bg-accent{
   --tw-bg-opacity: 1;
-  background-color: rgb(201 169 110 / var(--tw-bg-opacity, 1));
+  background-color: rgb(238 115 58 / var(--tw-bg-opacity, 1));
 }
 
 .bg-accent\/10{
-  background-color: rgb(201 169 110 / 0.1);
+  background-color: rgb(238 115 58 / 0.1);
 }
 
 .bg-background{
@@ -1339,7 +1339,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .text-accent{
   --tw-text-opacity: 1;
-  color: rgb(201 169 110 / var(--tw-text-opacity, 1));
+  color: rgb(238 115 58 / var(--tw-text-opacity, 1));
 }
 
 .text-gray-200{
@@ -1436,7 +1436,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-gradient-luxury{
-  background: linear-gradient(135deg, #C9A96E 0%, #B8860B 100%);
+  background: linear-gradient(135deg, #ee733a 0%, #B8860B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1500,7 +1500,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hover\:text-accent:hover{
   --tw-text-opacity: 1;
-  color: rgb(201 169 110 / var(--tw-text-opacity, 1));
+  color: rgb(238 115 58 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-primary:hover{
@@ -1522,12 +1522,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .group:hover .group-hover\:bg-accent\/20{
-  background-color: rgb(201 169 110 / 0.2);
+  background-color: rgb(238 115 58 / 0.2);
 }
 
 .group:hover .group-hover\:text-accent{
   --tw-text-opacity: 1;
-  color: rgb(201 169 110 / var(--tw-text-opacity, 1));
+  color: rgb(238 115 58 / var(--tw-text-opacity, 1));
 }
 
 .group:hover .group-hover\:opacity-100{
