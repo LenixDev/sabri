@@ -69,6 +69,10 @@
   .form-input {
     @apply w-full px-4 py-3 border border-surface rounded-lg bg-white text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300;
   }
+
+.gradient-overlay {
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+}
   
   .text-hero {
     @apply text-4xl md:text-5xl lg:text-6xl font-semibold text-primary leading-tight;
