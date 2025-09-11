@@ -11,7 +11,7 @@ module.exports = {
         // Primary Colors
         primary: "#1A1D23", // sophisticated foundation
         secondary: "#2C3E50", // professional depth
-        accent: "#C9A96E", // luxury highlight
+        accent: "#ee733a", // luxury highlight
         
         // Background Colors
         background: "#FAFBFC", // clean canvas
@@ -158,7 +158,7 @@ module.exports = {
           background: 'linear-gradient(135deg, #1A1D23 0%, #2C3E50 100%)',
         },
         '.text-gradient-luxury': {
-          background: 'linear-gradient(135deg, #C9A96E 0%, #B8860B 100%)',
+          background: 'linear-gradient(135deg, #ee733a 0%, #B8860B 100%)',
           '-webkit-background-clip': 'text',
           '-webkit-text-fill-color': 'transparent',
           'background-clip': 'text',
