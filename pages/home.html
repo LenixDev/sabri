@@ -10,6 +10,8 @@
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;700&amp;display=swap"
         rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style type="text/tailwindcss">
         :root {
@@ -73,7 +75,11 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         <div class="flex flex-col rounded-lg bg-[#1A241F] border border-[var(--border-color)] overflow-hidden"
-                            x-data="{ activeImage: 0, images: ['../assets/images/sabri/kamis/1df8969f-4982-4b21-aafe-e0237f957840.jpg', '../assets/images/sabri/kamis/1df8969f-4982-4b21-aafe-e0237f957840.jpg', '../assets/images/sabri/kamis/1df8969f-4982-4b21-aafe-e0237f957840.jpg'] }">
+                            x-data="{ activeImage: 0, images: [
+                                '../assets/images/sabri/kamis/1df8969f-4982-4b21-aafe-e0237f957840.jpg',
+                                '../assets/images/sabri/kamis/1df8969f-4982-4b21-aafe-e0237f957840.jpg',
+                                '../assets/images/sabri/kamis/1df8969f-4982-4b21-aafe-e0237f957840.jpg'
+                                ]}">
                             <div class="relative h-64">
                                 <template :key="index" x-for="(image, index) in images">
                                     <img :src="image" alt="Lingerie Image"
@@ -224,102 +230,188 @@
             <section class="py-16 lg:py-24 bg-[#1A241F]">
                 <div class="container mx-auto px-6 lg:px-10">
                     <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-                        <div class="space-y-4">
-                            <h2 class="text-3xl font-bold tracking-tight lg:text-4xl" id="about">About Sabri Libass Fashion</h2>
+                        <div class="space-y-4 pb-12">
+                            <h2 class="text-3xl font-bold tracking-tight lg:text-4xl" id="about">About Sabri Libass
+                                Fashion</h2>
                             <p class="text-[var(--text-secondary)] text-lg">Founded on the principles of quality,
-                                reliability, and partnership, Sabri Libass Fashion has grown to become a cornerstone of Algeria's
+                                reliability, and partnership, Sabri Libass Fashion has grown to become a cornerstone of
+                                Algeria's
                                 textile manufacturing industry. Based in Bou-Saada, we leverage state-of-the-art
                                 technology and a highly skilled workforce to deliver exceptional products for our B2B
                                 clients.</p>
                             <p class="text-[var(--text-secondary)] text-lg">Our commitment is to your brand's success.
                                 We work collaboratively to understand your needs, ensuring every product we create meets
                                 the highest standards of excellence and reflects your brand's vision.</p>
-                            <a class="inline-flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-[var(--primary-color)] text-[var(--secondary-color)] text-base font-bold tracking-wide hover:bg-opacity-90 transition-colors"
-                                href="#"> Learn More About Us </a>
+                            <div x-data="{ expanded: false }">
+                                <button @click="expanded = !expanded"
+                                    class="inline-flex min-w-[84px] items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-[var(--primary-color)] text-[var(--secondary-color)] text-base font-bold tracking-wide hover:bg-opacity-90 transition-colors">
+                                    <span x-text="expanded ? 'Show Less' : 'Learn More About Us'"></span>
+                                </button>
+                                <div x-show="expanded" x-collapse
+                                    class="mt-6 space-y-4 text-[var(--text-secondary)] text-lg">
+                                    <p>Additional information about your company can go here. This content will be shown
+                                        when the user clicks the button.</p>
+                                    <p>You can add more paragraphs, lists, or any other HTML content as needed.</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="relative h-64 md:h-full min-h-[300px] rounded-xl overflow-hidden">
-                            <img alt="Factory Image" class="w-full h-full object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUC-B_-ZemjWn8inn8s5xoMST8x2Kh5NYNdBgQ2J6uLQ0TElA7hoZ0Lb_OWJpA6MVRFW2c3yoaykUTb9xJMmF19FQS3tWfDMM8m-LSwfDHn0_eBP3CzWu_gN6DSsZ6eoKKstlVrNYPLzyWCpWBMhtn8tlQoalDUMbOb6vglrPPBHm_QurmMhzBB7dCYJl2lFH8kuAhsBOt4Ukk1ggtZzarnUmoMP1HAXB3mVIJPuZNzZatvrSpa2dKpDpPfcQZG9s7PgGWu31tRdeI" />
-                            <div class="absolute inset-0 bg-black/30"></div>
+                            <div class="absolute inset-0 bg-black/30 z-10 pointer-events-none"></div>
+                            <video id="scroll-video" class="w-full h-full object-cover z-0" muted playsinline controls>
+                                <source src="../assets/videos/sabri/video_sabri.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
-        <footer class="border-t border-[var(--border-color)] bg-[#1A241F]">
-            <div class="container mx-auto px-6 lg:px-10 py-12">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="space-y-4">
-                        <a class="flex items-center gap-3 text-white" href="#">
-                            <img src="../assets/images/sabri/Logo Sabri.jpg" alt="" width="35">
-                            <h1 class="text-xl font-bold tracking-tight">Sabri Libass Fashion</h1>
-                        </a>
-                        <p class="text-[var(--text-secondary)] text-sm">Industrial garment and lingerie manufacturing
-                            based in Bou-Saada, Algeria.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white">Contact Us</h3>
-                        <ul class="mt-4 space-y-2 text-[var(--text-secondary)] text-sm">
-                            <li class="flex items-center gap-2">
-                                <svg class="h-4 w-4 text-[var(--primary-color)]" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                                </svg>
-                                <a class="hover:text-white" href="tel:+213123456789">+213 123 456 789</a>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <svg class="h-4 w-4 text-[var(--primary-color)]" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                                </svg>
-                                <a class="hover:text-white"
-                                    href="mailto:contact@sabrilibass.site">contact@sabrilibass.site</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white" id="contact">Follow Us</h3>
-                        <div class="flex items-center gap-4 mt-4">
-                            <a class="text-[var(--text-secondary)] hover:text-white" href="#">
-                                <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path clip-rule="evenodd"
-                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                        fill-rule="evenodd"></path>
-                                </svg>
-                            </a>
-                            <a class="text-[var(--text-secondary)] hover:text-white" href="#">
-                                <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
-                                    </path>
-                                </svg>
-                            </a>
-                            <a class="text-[var(--text-secondary)] hover:text-white" href="#">
-                                <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path clip-rule="evenodd"
-                                        d="M12 2C6.477 2 2 6.477 2 12c0 4.489 3.097 8.286 7.236 9.491.525.097.716-.228.716-.506v-1.82c-3.01.655-3.643-1.458-3.643-1.458-.477-1.212-1.164-1.535-1.164-1.535-.952-.65.072-.638.072-.638 1.053.074 1.606 1.08 1.606 1.08.935 1.603 2.452 1.14 3.048.871.095-.678.366-1.14.667-1.403-2.324-.265-4.766-1.162-4.766-5.176 0-1.143.407-2.076 1.077-2.809-.108-.266-.467-1.33.102-2.771 0 0 .878-.282 2.875 1.074a9.96 9.96 0 012.612-.35c.877 0 1.754.117 2.612.35 1.997-1.356 2.875-1.074 2.875-1.074.57 1.44.21 2.505.102 2.771.67.733 1.076 1.666 1.076 2.809 0 4.024-2.446 4.91-4.776 5.17.377.324.71.97.71 1.954v2.897c0 .28.19.607.72.506C18.907 20.286 22 16.49 22 12c0-5.523-4.477-10-10-10z"
-                                        fill-rule="evenodd"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+        <footer class="border-t border-[var(--border-color)] bg-[#1A241F] text-white py-12 px-6 lg:px-10">
+            <div class="container mx-auto max-w-5xl">
+              <!-- Top Grid: Logo + Contact Us -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div class="space-y-4">
+                  <a class="flex items-center gap-3 text-white" href="#">
+                    <img src="../assets/images/sabri/Logo Sabri.jpg" alt="Sabri Libass Fashion Logo" width="35" />
+                    <h1 class="text-xl font-bold tracking-tight">Sabri Libass Fashion</h1>
+                  </a>
+                  <p class="text-[var(--text-secondary)] text-sm">
+                    Industrial garment and lingerie manufacturing based in Bou-Saada, Algeria.
+                  </p>
                 </div>
-                <div
-                    class="mt-8 border-t border-[var(--border-color)] pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p class="text-[var(--text-secondary)] text-sm">© 2024 Sabri Libass Fashion. All rights reserved.</p>
-                    <div class="flex items-center gap-6">
-                        <a class="text-[var(--text-secondary)] hover:text-white text-sm" href="#">Privacy Policy</a>
-                        <a class="text-[var(--text-secondary)] hover:text-white text-sm" href="#">Terms of Service</a>
+          
+                <!-- Contact Us (spans 3 cols on md+) -->
+                <div class="md:col-span-3 space-y-6">
+                  <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-[var(--text-secondary)] text-sm">
+                    <!-- Sales Department -->
+                    <div>
+                      <h4 class="text-white font-medium mb-2">Sales Department</h4>
+                      <ul class="space-y-2">
+                        <li class="flex items-center gap-2">
+                          <i class="fas fa-phone-alt text-[var(--primary-color)]"></i>
+                          <a class="hover:text-white" href="tel:+213123456789">+213 123 456 789</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <i class="fas fa-envelope text-[var(--primary-color)]"></i>
+                          <a class="hover:text-white" href="mailto:sales@sabrilibass.site">sales@sabrilibass.site</a>
+                        </li>
+                      </ul>
                     </div>
+          
+                    <!-- Customer Support -->
+                    <div>
+                      <h4 class="text-white font-medium mb-2">Customer Support</h4>
+                      <ul class="space-y-2">
+                        <li class="flex items-center gap-2">
+                          <i class="fas fa-phone-alt text-[var(--primary-color)]"></i>
+                          <a class="hover:text-white" href="tel:+213123456790">+213 123 456 790</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <i class="fas fa-envelope text-[var(--primary-color)]"></i>
+                          <a class="hover:text-white" href="mailto:support@sabrilibass.site">support@sabrilibass.site</a>
+                        </li>
+                      </ul>
+                    </div>
+          
+                    <!-- General Inquiries -->
+                    <div>
+                      <h4 class="text-white font-medium mb-2">General Inquiries</h4>
+                      <ul class="space-y-2">
+                        <li class="flex items-center gap-2">
+                          <i class="fas fa-phone-alt text-[var(--primary-color)]"></i>
+                          <a class="hover:text-white" href="tel:+213123456791">+213 123 456 791</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <i class="fas fa-envelope text-[var(--primary-color)]"></i>
+                          <a class="hover:text-white" href="mailto:info@sabrilibass.site">info@sabrilibass.site</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
+              </div>
+          
+              <!-- Location & Follow Us Section -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <!-- Our Location with Map -->
+                <div>
+                  <h3 class="text-lg font-semibold text-white mb-4">Our Location</h3>
+                  <div class="rounded-lg overflow-hidden border border-[var(--border-color)]">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3413.0973844164337!2d4.17005031509758!3d35.20882598130144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1285a4d5a5b0e5d7%3A0x5e9a5a5b0e5d7a5b0!2sBou-Saada%2C%20Algeria!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+                      width="100%"
+                      height="200"
+                      style="border:0;"
+                      allowfullscreen=""
+                      loading="lazy"
+                      class="w-full h-48 md:h-64 lg:h-48"
+                    ></iframe>
+                  </div>
+                  <p class="mt-2 text-sm text-[var(--text-secondary)]">Bou-Saada, Algeria</p>
+                </div>
+          
+                <!-- Follow Us -->
+                <div>
+                  <h3 class="text-lg font-semibold text-white mb-4">Follow Us</h3>
+                  <div class="flex items-center gap-6 text-[var(--text-secondary)] text-2xl">
+                    <a href="#" aria-label="Facebook" class="hover:text-white">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" aria-label="Twitter" class="hover:text-white">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram" class="hover:text-white">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="GitHub" class="hover:text-white">
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Copyright & Links -->
+              <div
+                class="mt-8 border-t border-[var(--border-color)] pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[var(--text-secondary)] text-sm"
+              >
+                <p>© 2024 Sabri Libass Fashion. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                  <a class="hover:text-white" href="#">Privacy Policy</a>
+                  <a class="hover:text-white" href="#">Terms of Service</a>
+                </div>
+              </div>
             </div>
-        </footer>
+          </footer>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById("scroll-video");
 
+            if (!video) return;
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            video.play().catch((err) => {
+                                console.warn("Autoplay failed:", err);
+                            });
+                        } else {
+                            video.pause();
+                        }
+                    });
+                },
+                {
+                    threshold: 0.5, // play when 50% or more is visible
+                }
+            );
+
+            observer.observe(video);
+        });
+    </script>
 </body>
 
 </html>
