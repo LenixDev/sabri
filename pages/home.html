@@ -55,14 +55,37 @@
             </div>
         </header>
         <main>
-            <section class="relative min-h-[60vh] lg:min-h-[80vh] flex items-end justify-center text-center px-6"
-                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB7CTaG4nAioYnZWzq-T6FTSF_Pk_UV2hFBlTRgDdNEQD_1gIcL04za2EJ-8e4fT6e2aWDaOUXl09FWUxcfgxy0XhlWiykgTstRw2HEDiLPILOCCGVGdkUEk7fKbP6oJ058pK0MGDaIwiOA_JboAanEIPHLLfJ6PzoPE86hvIGPbPsSI3WUEoCz1TX_XpR7FwdUJgu6nzx0HLvcNZaAvO2l_5zujW1TJdRlXjOfNuCTYfADq3Ufh5aeYCnnz4nSmScN-E-IBqF-oQtn"); background-position: center; background-size: cover;'>
-                <div class="absolute inset-0 gradient-overlay"></div>
-                <div class="relative z-10 max-w-4xl mx-auto pb-20 lg:pb-32">
-                    <h1 class="text-4xl font-bold leading-tight tracking-tighter md:text-6xl text-white"> Algerian
-                        Textile Excellence, Crafted for Your Brand </h1>
-                    <p class="mt-4 text-lg font-light text-[var(--text-secondary)] md:text-xl"> From concept to
-                        creation, we are the trusted B2B partner for industrial garment and lingerie manufacturing. </p>
+            <section class="hero-section">
+                <div class="background-container">
+                    <!-- Replace these with paths to your local images -->
+                    <img src="https://images.unsplash.com/photo-1556638541-7412c563e4f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Textile Design 1" class="background-image active">
+                    <img src="https://images.unsplash.com/photo-1506629905877-52a5ca6d63b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Textile Design 2" class="background-image">
+                    <img src="https://images.unsplash.com/photo-1616128417863-ebf9ff5c2a3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Textile Design 3" class="background-image">
+                    <img src="https://images.unsplash.com/photo-1565350734986-1d2e009b83cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Textile Design 4" class="background-image">
+                    
+                    <div class="gradient-overlay"></div>
+                </div>
+                
+                <div class="content">
+                    <h1>Algerian Textile Excellence, Crafted for Your Brand</h1>
+                    <p>From concept to creation, we are the trusted B2B partner for industrial garment and lingerie manufacturing.</p>
+                    <a href="#" class="btn">Explore Our Products</a>
+                </div>
+                
+                <div class="caption">Traditional Algerian textile patterns</div>
+                
+                <button class="nav-btn prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="controls">
+                    <div class="control-btn active"></div>
+                    <div class="control-btn"></div>
+                    <div class="control-btn"></div>
+                    <div class="control-btn"></div>
                 </div>
             </section>
             <section class="py-16 lg:py-24 bg-[var(--secondary-color)]">
@@ -425,6 +448,77 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll('.background-image');
+            const controlBtns = document.querySelectorAll('.control-btn');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let currentIndex = 0;
+            let interval;
+            
+            // Function to update the background image
+            function updateBackground(index) {
+                // Remove active class from all images and controls
+                images.forEach(img => img.classList.remove('active'));
+                controlBtns.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to current image and control
+                images[index].classList.add('active');
+                controlBtns[index].classList.add('active');
+                
+                currentIndex = index;
+            }
+            
+            // Function to show next image
+            function nextImage() {
+                let nextIndex = (currentIndex + 1) % images.length;
+                updateBackground(nextIndex);
+            }
+            
+            // Function to show previous image
+            function prevImage() {
+                let prevIndex = (currentIndex - 1 + images.length) % images.length;
+                updateBackground(prevIndex);
+            }
+            
+            // Set up automatic slideshow
+            function startSlideshow() {
+                interval = setInterval(nextImage, 5000); // Change image every 5 seconds
+            }
+            
+            // Add event listeners to control buttons
+            controlBtns.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    clearInterval(interval);
+                    updateBackground(index);
+                    startSlideshow();
+                });
+            });
+            
+            // Add event listeners to navigation buttons
+            nextBtn.addEventListener('click', () => {
+                clearInterval(interval);
+                nextImage();
+                startSlideshow();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                clearInterval(interval);
+                prevImage();
+                startSlideshow();
+            });
+            
+            // Start the slideshow
+            startSlideshow();
+            
+            // Pause slideshow when hovering over the section
+            const heroSection = document.querySelector('.hero-section');
+            heroSection.addEventListener('mouseenter', () => {
+                clearInterval(interval);
+            });
+            
+            heroSection.addEventListener('mouseleave', () => {
+                startSlideshow();
+            });
             const video = document.getElementById("scroll-video");
 
             if (!video) return;
