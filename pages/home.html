@@ -84,7 +84,7 @@
                     class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--border-color)] py-4">
                     <a class="flex items-center gap-3 text-white" href="#">
                         <img src="../assets/images/sabri/Logo Sabri.JPG" alt="" width="35">
-                        <h1 class="text-xxl font-bold tracking-tight">Sabri Libass Fashion</h1>
+                        <h1 class="text-3xl font-bold tracking-tight">Sabri Libass Fashion</h1>
                     </a>
                     <nav class="hidden lg:flex items-center gap-8">
                         <a class="text-sm font-medium hover:text-[var(--primary-color)] transition-colors"
@@ -144,61 +144,132 @@
                             our B2B clientele. </p>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                        <div class="flex flex-col rounded-lg bg-[#1A241F] border border-[var(--border-color)] overflow-hidden"
-                            x-data="{ activeImage: 0, images: [ '../assets/images/sabri/kamis/e64ee3bd-9c74-4159-981d-aa477a4f33d2.JPG',
+                        <!-- Add this once in <head> (only if Alpine isn't already loaded) -->
+                        <!-- <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script> -->
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+                        <!-- Kamis -->
+                        <div
+                            class="flex flex-col rounded-lg bg-[#1A241F] border border-[var(--border-color)] overflow-hidden"
+                            x-data="{
+                            activeImage: 0,
+                            images: [
+                                '../assets/images/sabri/kamis/e64ee3bd-9c74-4159-981d-aa477a4f33d2.JPG',
                                 '../assets/images/sabri/kamis/fa65a037-111c-4b10-8c02-827a68bd7f13.JPG',
                                 '../assets/images/sabri/kamis/5ddf168b-270f-4758-95c8-28400ad02860.JPG',
                                 '../assets/images/sabri/kamis/27b51e09-85ff-43ef-8664-fca2adcd139f.JPG',
                                 '../assets/images/sabri/kamis/89811a93-db3d-4a5b-a75d-6ebfbe32e89e.JPG',
-                                '../assets/images/sabri/kamis/cf08eeca-0a3b-4867-a1d2-440a9a8179ba.JPG' ]}">
+                                '../assets/images/sabri/kamis/cf08eeca-0a3b-4867-a1d2-440a9a8179ba.JPG'
+                            ],
+                            intervalId: null,
+                            autoplay: true,
+                            delay: 3500,                       // change autoplay speed (ms)
+                            init() { if (this.autoplay && this.images.length > 1) this.start() },
+                            start() { 
+                                this.stop();
+                                if (!this.autoplay || this.images.length <= 1) return;
+                                this.intervalId = setInterval(() => { this.activeImage = (this.activeImage + 1) % this.images.length }, this.delay);
+                            },
+                            stop() { if (this.intervalId) { clearInterval(this.intervalId); this.intervalId = null } },
+                            goto(i) { this.activeImage = i; this.stop(); this.start() } // call when user clicks dot
+                            }"
+                            x-init="init()"
+                            x-on:mouseenter="stop()"
+                            x-on:mouseleave="start()"
+                        >
                             <div class="relative h-64">
-                                <template :key="index" x-for="(image, index) in images">
-                                    <img :src="image" alt="Something went wrong"
-                                        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-                                        x-show="activeImage === index" />
+                            <template x-for="(image, index) in images" :key="index">
+                                <img
+                                :src="image"
+                                alt=""
+                                class="absolute inset-0 w-full h-full object-cover"
+                                x-show="activeImage === index"
+                                x-transition.opacity.duration.700ms
+                                />
+                            </template>
+                            </div>
+
+                            <div class="p-6 text-center flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold">Kamis</h3>
+                            <p class="text-[var(--text-secondary)] text-sm mt-2 flex-grow">
+                                Intricately designed and expertly crafted lingerie.
+                            </p>
+
+                            <div class="flex justify-center gap-2 mt-4">
+                                <template x-for="(image, index) in images" :key="index">
+                                <button
+                                    :class="{'bg-[var(--primary-color)]': activeImage === index, 'bg-gray-500': activeImage !== index}"
+                                    @click="goto(index)"
+                                    class="w-2.5 h-2.5 rounded-full transition-colors"
+                                    :aria-label="`show image ${index+1}`"
+                                ></button>
                                 </template>
                             </div>
-                            <div class="p-6 text-center flex-grow flex flex-col">
-                                <h3 class="text-xl font-bold">Kamis</h3>
-                                <p class="text-[var(--text-secondary)] text-sm mt-2 flex-grow">Intricately designed and
-                                    expertly crafted lingerie.</p>
-                                <div class="flex justify-center gap-2 mt-4">
-                                    <template :key="index" x-for="(image, index) in images">
-                                        <button
-                                            :class="{'bg-[var(--primary-color)]': activeImage === index, 'bg-gray-500': activeImage !== index}"
-                                            @click="activeImage = index" class="w-2.5 h-2.5 rounded-full"></button>
-                                    </template>
-                                </div>
                             </div>
                         </div>
-                        <div class="flex flex-col rounded-lg bg-[#1A241F] border border-[var(--border-color)] overflow-hidden"
-                            x-data="{ activeImage: 0, images: [
+
+                        <!-- Sublime -->
+                        <div
+                            class="flex flex-col rounded-lg bg-[#1A241F] border border-[var(--border-color)] overflow-hidden"
+                            x-data="{
+                            activeImage: 0,
+                            images: [
                                 '../assets/images/sabri/addons/port_cle/421cc5ad-1c69-46c4-8760-74b84825d6ee.JPG',
                                 '../assets/images/sabri/addons/port_cle/f6129e51-b01a-47dc-8c9b-6cc6b13de814.JPG',
                                 '../assets/images/sabri/addons/mouse_pad/c080d1b6-658f-4990-9a8a-a28653c92a5a.JPG',
                                 '../assets/images/sabri/addons/c248e214-009d-40af-9212-4cd9c14bc702.JPG',
-                                '../assets/images/sabri/addons/c08071b8-bfd6-4352-8314-6e1c54f56026.JPG',
-                                ] }">
+                                '../assets/images/sabri/addons/c08071b8-bfd6-4352-8314-6e1c54f56026.JPG'
+                            ],
+                            intervalId: null,
+                            autoplay: true,
+                            delay: 3500,
+                            init() { if (this.autoplay && this.images.length > 1) this.start() },
+                            start() { 
+                                this.stop();
+                                if (!this.autoplay || this.images.length <= 1) return;
+                                this.intervalId = setInterval(() => { this.activeImage = (this.activeImage + 1) % this.images.length }, this.delay);
+                            },
+                            stop() { if (this.intervalId) { clearInterval(this.intervalId); this.intervalId = null } },
+                            goto(i) { this.activeImage = i; this.stop(); this.start() }
+                            }"
+                            x-init="init()"
+                            x-on:mouseenter="stop()"
+                            x-on:mouseleave="start()"
+                        >
                             <div class="relative h-64">
-                                <template :key="index" x-for="(image, index) in images">
-                                    <img :src="image" alt="Something went wrong"
-                                        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-                                        x-show="activeImage === index" />
+                            <template x-for="(image, index) in images" :key="index">
+                                <img
+                                :src="image"
+                                alt=""
+                                class="absolute inset-0 w-full h-full object-cover"
+                                x-show="activeImage === index"
+                                x-transition.opacity.duration.700ms
+                                />
+                            </template>
+                            </div>
+
+                            <div class="p-6 text-center flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold">Sublime</h3>
+                            <p class="text-[var(--text-secondary)] text-sm mt-2 flex-grow">
+                                A diverse range of apparel for various markets.
+                            </p>
+
+                            <div class="flex justify-center gap-2 mt-4">
+                                <template x-for="(image, index) in images" :key="index">
+                                <button
+                                    :class="{'bg-[var(--primary-color)]': activeImage === index, 'bg-gray-500': activeImage !== index}"
+                                    @click="goto(index)"
+                                    class="w-2.5 h-2.5 rounded-full transition-colors"
+                                    :aria-label="`show image ${index+1}`"
+                                ></button>
                                 </template>
                             </div>
-                            <div class="p-6 text-center flex-grow flex flex-col">
-                                <h3 class="text-xl font-bold">Sublime</h3>
-                                <p class="text-[var(--text-secondary)] text-sm mt-2 flex-grow">A diverse range of
-                                    apparel for various markets.</p>
-                                <div class="flex justify-center gap-2 mt-4">
-                                    <template :key="index" x-for="(image, index) in images">
-                                        <button
-                                            :class="{'bg-[var(--primary-color)]': activeImage === index, 'bg-gray-500': activeImage !== index}"
-                                            @click="activeImage = index" class="w-2.5 h-2.5 rounded-full"></button>
-                                    </template>
-                                </div>
                             </div>
                         </div>
+
+                        </div>
+
                     </div>
                 </div>
             </section>
