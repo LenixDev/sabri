@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Zedline - Contemporary Fashion for the Modern Individual</title>
+    <link href="assets/images/zedline/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #111827;
+            --secondary-color: #1F2937;
+            --accent-color: #DB2777;
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+            --light-bg: #F9FAFB;
+            --dark-bg: #111827;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-primary);
+            background-color: #ffffff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(31, 41, 55, 0.9) 100%);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card .product-actions {
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: translateY(10px);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .collection-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .collection-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        .collection-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .collection-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+            padding: 30px 20px 20px;
+            color: white;
+        }
+        
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            z-index: 2;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Announcement Bar -->
+    <div class="bg-black text-white text-sm text-center py-2 px-4">
+        <p>Free shipping on all orders over $50 | New Collection Now Available</p>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full bg-white z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 text-gray-700 hover:text-gray-900">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold tracking-tight" style="color: var(--primary-color);">ZEDLINE</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <div class="dropdown relative">
+                        <button class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center">
+                            New Arrivals
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Women's New In</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Men's New In</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Trending Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown relative">
+                        <button class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center">
+                            Women
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dresses</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tops</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Bottoms</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Outerwear</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Accessories</a>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown relative">
+                        <button class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center">
+                            Men
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Shirts</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">T-Shirts</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pants</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Outerwear</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Accessories</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#collections" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Collections</a>
+                    <a href="#sale" class="nav-link text-sm font-medium text-red-600 hover:text-red-700">Sale</a>
+                </nav>
+                
+                <!-- Icons -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-600 hover:text-gray-900 hidden md:block">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-gray-900 hidden md:block">
+                        <i class="far fa-user text-lg"></i>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-gray-900 relative">
+                        <i class="fas fa-shopping-bag text-lg"></i>
+                        <span class="absolute -top-1 -right-1 bg-pink-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-3">
+                    <div class="border-b border-gray-100 pb-3">
+                        <button class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-gray-900">
+                            <span>New Arrivals</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="pl-4 mt-2 space-y-2 hidden">
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Women's New In</a>
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Men's New In</a>
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Trending Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-100 pb-3">
+                        <button class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-gray-900">
+                            <span>Women</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="pl-4 mt-2 space-y-2 hidden">
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Dresses</a>
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Tops</a>
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Bottoms</a>
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Outerwear</a>
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Accessories</a>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-100 pb-3">
+                        <button class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-gray-900">
+                            <span>Men</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="pl-4 mt-2 space-y-2 hidden">
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Shirts</a>
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">T-Shirts</a>
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Pants</a>
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Outerwear</a>
+                            <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Accessories</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#collections" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">Collections</a>
+                    <a href="#sale" class="block py-2 text-red-600 hover:text-red-700 border-b border-gray-100">Sale</a>
+                    
+                    <div class="pt-4 flex space-x-4 md:hidden">
+                        <a href="#" class="text-gray-600 hover:text-gray-900">
+                            <i class="fas fa-search text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-gray-900">
+                            <i class="far fa-user text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden text-white">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-black/30 z-10"></div>
+            <img src="assets/images/zedline/hero-bg.jpg" alt="Zedline Fashion" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-6 relative z-20">
+            <div class="max-w-2xl">
+                <span class="inline-block text-xs font-semibold tracking-widest mb-4">NEW COLLECTION</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    Autumn Winter 2025
+                </h1>
+                <p class="text-lg text-gray-200 mb-8">
+                    Discover the latest trends in contemporary fashion. Elevate your style with our carefully curated collection of modern essentials.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#new-arrivals" class="px-8 py-3 bg-white text-gray-900 font-medium rounded hover:bg-gray-100 transition-colors text-center">
+                        Shop Now
+                    </a>
+                    <a href="#collections" class="px-8 py-3 border-2 border-white text-white font-medium rounded hover:bg-white/10 transition-colors text-center">
+                        View Collection
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Category 1 -->
+                <a href="#" class="group relative overflow-hidden rounded-lg h-64">
+                    <img src="assets/images/zedline/category-women.jpg" alt="Women's Collection" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="text-xl font-bold text-white">Women</h3>
+                        <p class="text-sm text-gray-200">New Arrivals</p>
+                    </div>
+                </a>
+                
+                <!-- Category 2 -->
+                <a href="#" class="group relative overflow-hidden rounded-lg h-64">
+                    <img src="assets/images/zedline/category-men.jpg" alt="Men's Collection" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="text-xl font-bold text-white">Men</h3>
+                        <p class="text-sm text-gray-200">Latest Styles</p>
+                    </div>
+                </a>
+                
+                <!-- Category 3 -->
+                <a href="#" class="group relative overflow-hidden rounded-lg h-64 md:row-span-2">
+                    <img src="assets/images/zedline/category-accessories.jpg" alt="Accessories" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="text-2xl font-bold text-white">Accessories</h3>
+                        <p class="text-gray-200">Complete Your Look</p>
+                    </div>
+                </a>
+                
+                <!-- Category 4 -->
+                <a href="#" class="group relative overflow-hidden rounded-lg h-64">
+                    <img src="assets/images/zedline/category-sale.jpg" alt="Sale" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="text-xl font-bold text-white">Sale</h3>
+                        <p class="text-sm text-gray-200">Up to 50% Off</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        SALE
+                    </div>
+                </a>
+                
+                <!-- Category 5 -->
+                <a href="#" class="group relative overflow-hidden rounded-lg h-64">
+                    <img src="assets/images/zedline/category-new-arrivals.jpg" alt="New Arrivals" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="text-xl font-bold text-white">New Arrivals</h3>
+                        <p class="text-sm text-gray-200">Shop the Latest</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black text-white text-xs font-bold px-3 py-1 rounded-full">
+                        NEW
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section id="new-arrivals" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">New Arrivals</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover our latest collection of contemporary fashion pieces</p>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button type="button" class="px-6 py-2 text-sm font-medium bg-pink-600 text-white rounded-l-lg hover:bg-pink-700 focus:z-10 focus:ring-2 focus:ring-pink-500">
+                        All
+                    </button>
+                    <button type="button" class="px-6 py-2 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-pink-500">
+                        Women
+                    </button>
+                    <button type="button" class="px-6 py-2 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-pink-500">
+                        Men
+                    </button>
+                    <button type="button" class="px-6 py-2 text-sm font-medium text-gray-700 bg-white rounded-r-md hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-pink-500">
+                        Accessories
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <div class="aspect-w-1 aspect-h-1 w-full">
+                            <img src="assets/images/zedline/product1.jpg" alt="Product 1" class="w-full h-full object-cover">
+                        </div>
+                        <div class="product-actions absolute bottom-0 left-0 right-0 p-4 bg-white/90 transform translate-y-full transition-all duration-300">
+                            <button class="w-full py-2 bg-black text-white text-sm font-medium rounded hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                            <div class="flex justify-center space-x-4 mt-2">
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="far fa-heart"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="fas fa-share-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-900">Slim Fit Blazer</h3>
+                        <div class="flex items-center mt-1">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(24)</span>
+                        </div>
+                        <div class="mt-2 flex justify-between items-center">
+                            <span class="font-bold text-gray-900">$129.99</span>
+                            <div class="flex space-x-1">
+                                <span class="w-4 h-4 rounded-full bg-gray-800 border-2 border-white shadow-sm"></span>
+                                <span class="w-4 h-4 rounded-full bg-gray-400 border-2 border-white shadow-sm"></span>
+                                <span class="w-4 h-4 rounded-full bg-pink-200 border-2 border-white shadow-sm"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <div class="aspect-w-1 aspect-h-1 w-full">
+                            <img src="assets/images/zedline/product2.jpg" alt="Product 2" class="w-full h-full object-cover">
+                        </div>
+                        <div class="product-actions absolute bottom-0 left-0 right-0 p-4 bg-white/90 transform translate-y-full transition-all duration-300">
+                            <button class="w-full py-2 bg-black text-white text-sm font-medium rounded hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                            <div class="flex justify-center space-x-4 mt-2">
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="far fa-heart"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="fas fa-share-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">-30%</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-900">Leather Crossbody Bag</h3>
+                        <div class="flex items-center mt-1">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(36)</span>
+                        </div>
+                        <div class="mt-2 flex justify-between items-center">
+                            <div>
+                                <span class="font-bold text-gray-900">$89.99</span>
+                                <span class="ml-2 text-sm text-gray-500 line-through">$129.99</span>
+                            </div>
+                            <div class="flex space-x-1">
+                                <span class="w-4 h-4 rounded-full bg-black border-2 border-white shadow-sm"></span>
+                                <span class="w-4 h-4 rounded-full bg-brown-600 border-2 border-white shadow-sm"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <div class="aspect-w-1 aspect-h-1 w-full">
+                            <img src="assets/images/zedline/product3.jpg" alt="Product 3" class="w-full h-full object-cover">
+                        </div>
+                        <div class="product-actions absolute bottom-0 left-0 right-0 p-4 bg-white/90 transform translate-y-full transition-all duration-300">
+                            <button class="w-full py-2 bg-black text-white text-sm font-medium rounded hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                            <div class="flex justify-center space-x-4 mt-2">
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="far fa-heart"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="fas fa-share-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-900">Knit Sweater</h3>
+                        <div class="flex items-center mt-1">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(18)</span>
+                        </div>
+                        <div class="mt-2 flex justify-between items-center">
+                            <span class="font-bold text-gray-900">$79.99</span>
+                            <div class="flex space-x-1">
+                                <span class="w-4 h-4 rounded-full bg-blue-900 border-2 border-white shadow-sm"></span>
+                                <span class="w-4 h-4 rounded-full bg-gray-200 border-2 border-white shadow-sm"></span>
+                                <span class="w-4 h-4 rounded-full bg-red-700 border-2 border-white shadow-sm"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <div class="aspect-w-1 aspect-h-1 w-full">
+                            <img src="assets/images/zedline/product4.jpg" alt="Product 4" class="w-full h-full object-cover">
+                        </div>
+                        <div class="product-actions absolute bottom-0 left-0 right-0 p-4 bg-white/90 transform translate-y-full transition-all duration-300">
+                            <button class="w-full py-2 bg-black text-white text-sm font-medium rounded hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                            <div class="flex justify-center space-x-4 mt-2">
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="far fa-heart"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-pink-600">
+                                    <i class="fas fa-share-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded">BESTSELLER</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-900">High-Waisted Jeans</h3>
+                        <div class="flex items-center mt-1">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(42)</span>
+                        </div>
+                        <div class="mt-2 flex justify-between items-center">
+                            <span class="font-bold text-gray-900">$69.99</span>
+                            <div class="flex space-x-1">
+                                <span class="w-4 h-4 rounded-full bg-blue-900 border-2 border-white shadow-sm"></span>
+                                <span class="w-4 h-4 rounded-full bg-black border-2 border-white shadow-sm"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-8 py-3 border-2 border-gray-900 text-gray-900 font-medium rounded hover:bg-gray-100 transition-colors">
+                    View All Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner -->
+    <section class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="bg-black text-white rounded-xl overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-12 md:p-16 flex flex-col justify-center">
+                        <span class="text-sm font-medium text-pink-400 mb-2">LIMITED TIME OFFER</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Get 20% Off Your First Order</h2>
+                        <p class="text-gray-300 mb-6">Subscribe to our newsletter and receive an exclusive discount on your first purchase.</p>
+                        <form class="flex flex-col sm:flex-row gap-3">
+                            <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <button type="submit" class="px-6 py-3 bg-pink-600 text-white font-medium rounded hover:bg-pink-700 transition-colors whitespace-nowrap">
+                                Subscribe
+                            </button>
+                        </form>
+                        <p class="text-xs text-gray-400 mt-3">By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.</p>
+                    </div>
+                    <div class="h-64 md:h-auto">
+                        <img src="assets/images/zedline/newsletter-banner.jpg" alt="Fashion Model" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections -->
+    <section id="collections" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Collections</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our curated collections designed for every occasion</p>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Collection 1 -->
+                <div class="collection-card group h-96">
+                    <img src="assets/images/zedline/collection1.jpg" alt="Urban Essentials" class="w-full h-full object-cover">
+                    <div class="collection-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold">Urban Essentials</h3>
+                        <p class="text-sm text-gray-200 mt-1">Casual styles for everyday wear</p>
+                        <a href="#" class="inline-block mt-4 text-sm font-medium text-white hover:text-pink-300 transition-colors">
+                            Shop Now <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Collection 2 -->
+                <div class="collection-card group h-96">
+                    <img src="assets/images/zedline/collection2.jpg" alt="Evening Elegance" class="w-full h-full object-cover">
+                    <div class="collection-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold">Evening Elegance</h3>
+                        <p class="text-sm text-gray-200 mt-1">Sophisticated looks for special occasions</p>
+                        <a href="#" class="inline-block mt-4 text-sm font-medium text-white hover:text-pink-300 transition-colors">
+                            Shop Now <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Collection 3 -->
+                <div class="collection-card group h-96">
+                    <img src="assets/images/zedline/collection3.jpg" alt="Athleisure" class="w-full h-full object-cover">
+                    <div class="collection-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold">Athleisure</h3>
+                        <p class="text-sm text-gray-200 mt-1">Comfort meets style</p>
+                        <a href="#" class="inline-block mt-4 text-sm font-medium text-white hover:text-pink-300 transition-colors">
+                            Shop Now <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sale Section -->
+    <section id="sale" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block text-pink-600 text-sm font-semibold mb-2">LIMITED TIME OFFER</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">End of Season Sale</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Up to 50% off selected items. Shop now before they're gone!</p>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold">Women's Sale</h3>
+                        <span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded">UP TO 50% OFF</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="#" class="group">
+                            <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
+                                <img src="assets/images/zedline/sale-women1.jpg" alt="Women's Sale 1" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                            </div>
+                            <p class="mt-2 text-sm font-medium text-gray-900">Dresses</p>
+                            <p class="text-sm text-gray-500">From $29.99</p>
+                        </a>
+                        <a href="#" class="group">
+                            <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
+                                <img src="assets/images/zedline/sale-women2.jpg" alt="Women's Sale 2" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                            </div>
+                            <p class="mt-2 text-sm font-medium text-gray-900">Tops</p>
+                            <p class="text-sm text-gray-500">From $19.99</p>
+                        </a>
+                    </div>
+                    <a href="#" class="inline-block mt-6 text-sm font-medium text-pink-600 hover:text-pink-700">
+                        Shop Women's Sale <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold">Men's Sale</h3>
+                        <span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded">UP TO 40% OFF</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="#" class="group">
+                            <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
+                                <img src="assets/images/zedline/sale-men1.jpg" alt="Men's Sale 1" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                            </div>
+                            <p class="mt-2 text-sm font-medium text-gray-900">Shirts</p>
+                            <p class="text-sm text-gray-500">From $34.99</p>
+                        </a>
+                        <a href="#" class="group">
+                            <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
+                                <img src="assets/images/zedline/sale-men2.jpg" alt="Men's Sale 2" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                            </div>
+                            <p class="mt-2 text-sm font-medium text-gray-900">Pants</p>
+                            <p class="text-sm text-gray-500">From $39.99</p>
+                        </a>
+                    </div>
+                    <a href="#" class="inline-block mt-6 text-sm font-medium text-pink-600 hover:text-pink-700">
+                        Shop Men's Sale <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#" class="inline-block px-8 py-3 bg-black text-white font-medium rounded hover:bg-gray-800 transition-colors">
+                    View All Sale Items
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-2xl text-pink-600"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Free Shipping</h3>
+                    <p class="text-gray-600 text-sm">Free delivery on all orders over $50</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-undo-alt text-2xl text-pink-600"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Easy Returns</h3>
+                    <p class="text-gray-600 text-sm">30-day return policy for all orders</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-2xl text-pink-600"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">24/7 Support</h3>
+                    <p class="text-gray-600 text-sm">Dedicated customer support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed -->
+    <section class="bg-gray-50 py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold">Follow Us on Instagram</h2>
+                <p class="text-gray-600">@zedline.fashion</p>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-1">
+                <!-- Instagram posts would be dynamically loaded here -->
+                <a href="#" class="aspect-square overflow-hidden">
+                    <img src="assets/images/zedline/instagram1.jpg" alt="Instagram Post 1" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                </a>
+                <a href="#" class="aspect-square overflow-hidden">
+                    <img src="assets/images/zedline/instagram2.jpg" alt="Instagram Post 2" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                </a>
+                <a href="#" class="aspect-square overflow-hidden">
+                    <img src="assets/images/zedline/instagram3.jpg" alt="Instagram Post 3" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                </a>
+                <a href="#" class="aspect-square overflow-hidden md:block hidden">
+                    <img src="assets/images/zedline/instagram4.jpg" alt="Instagram Post 4" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                </a>
+                <a href="#" class="aspect-square overflow-hidden lg:block hidden">
+                    <img src="assets/images/zedline/instagram5.jpg" alt="Instagram Post 5" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                </a>
+                <a href="#" class="aspect-square overflow-hidden lg:block hidden">
+                    <img src="assets/images/zedline/instagram6.jpg" alt="Instagram Post 6" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                </a>
+                <a href="#" class="aspect-square overflow-hidden xl:block hidden">
+                    <img src="assets/images/zedline/instagram7.jpg" alt="Instagram Post 7" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                </a>
+                <a href="#" class="aspect-square overflow-hidden xl:block hidden">
+                    <img src="assets/images/zedline/instagram8.jpg" alt="Instagram Post 8" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+                <div class="lg:col-span-2">
+                    <h3 class="text-white text-xl font-bold mb-4">ZEDLINE</h3>
+                    <p class="text-sm text-gray-400 mb-6">Contemporary fashion for the modern individual. Discover our curated collections designed for every occasion.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Women's Collection</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Men's Collection</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Accessories</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-4">About Us</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Our Story</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Sustainability</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Press</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-500 text-center md:text-left mb-4 md:mb-0">© 2025 Zedline. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <img src="assets/images/zedline/payment-methods.png" alt="Payment Methods" class="h-6">
+                    </div>
+                </div>
+                <div class="mt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                    <div class="flex space-x-6 mb-4 md:mb-0">
+                        <a href="#" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-gray-300 transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-gray-300 transition-colors">Accessibility</a>
+                    </div>
+                    <div>
+                        <p>Designed with <i class="fas fa-heart text-pink-500"></i> by Zedline Team</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-black text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Mobile dropdown menus
+        const mobileDropdownButtons = document.querySelectorAll('#mobile-menu button');
+        mobileDropdownButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const menu = this.nextElementSibling;
+                menu.classList.toggle('hidden');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Calculate header height for offset
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Darsaha - Luxury Lingerie & Sleepwear</title>
+    <link href="assets/images/darsaha/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #E8C4B8;
+            --secondary-color: #2C1810;
+            --accent-color: #B76E79;
+            --text-primary: #2C1810;
+            --text-secondary: #6B4E3C;
+            --light-bg: #FFF9F7;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-primary);
+            background-color: #ffffff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(255, 249, 247, 0.9) 0%, rgba(255, 249, 247, 0.7) 100%);
+        }
+        
+        .collection-card {
+            transition: all 0.3s ease;
+        }
+        
+        .collection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .product-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold tracking-tight" style="color: var(--accent-color);">Darsaha</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Home</a>
+                    <a href="#collections" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Collections</a>
+                    <a href="#products" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Shop</a>
+                    <a href="#about" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">About</a>
+                    <a href="#contact" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Contact</a>
+                </nav>
+                
+                <!-- Icons -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-user text-lg"></i>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-gray-900 relative">
+                        <i class="fas fa-shopping-bag text-lg"></i>
+                        <span class="absolute -top-1 -right-1 bg-rose-400 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="block py-2 text-gray-700 hover:text-gray-900">Home</a>
+                    <a href="#collections" class="block py-2 text-gray-700 hover:text-gray-900">Collections</a>
+                    <a href="#products" class="block py-2 text-gray-700 hover:text-gray-900">Shop</a>
+                    <a href="#about" class="block py-2 text-gray-700 hover:text-gray-900">About</a>
+                    <a href="#contact" class="block py-2 text-gray-700 hover:text-gray-900">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden" style="background-color: var(--light-bg);">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="color: var(--secondary-color);">
+                        Elegant Lingerie for the Modern Woman
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                        Discover our exclusive collection of luxury lingerie and sleepwear, crafted with the finest materials and attention to detail.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#collections" class="px-8 py-3 bg-rose-400 text-white text-center font-medium rounded-full hover:bg-rose-500 transition-colors">
+                            Shop Now
+                        </a>
+                        <a href="#about" class="px-8 py-3 border-2 border-gray-800 text-center font-medium rounded-full hover:bg-gray-100 transition-colors">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative">
+                        <img src="assets/images/darsaha/hero-image.jpg" alt="Darsaha Lingerie" class="rounded-lg shadow-xl w-full max-w-lg mx-auto">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg hidden md:block">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold" style="color: var(--accent-color);">New Collection</div>
+                                <div class="text-sm text-gray-600">Spring/Summer 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-0 right-0 w-64 h-64 bg-rose-100 rounded-full opacity-20 -mr-32 -mt-32"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-amber-50 rounded-full opacity-30 -ml-64 -mb-64"></div>
+    </section>
+
+    <!-- Collections Section -->
+    <section id="collections" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--secondary-color);">Our Collections</h2>
+                <div class="w-20 h-1 bg-rose-300 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Collection 1 -->
+                <div class="collection-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="assets/images/darsaha/collection-1.jpg" alt="Luxury Lingerie" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <a href="#" class="px-6 py-2 bg-white text-gray-800 font-medium rounded-full">View Collection</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Luxury Lingerie</h3>
+                        <p class="text-gray-600 text-sm">Experience unparalleled comfort and style with our premium collection.</p>
+                    </div>
+                </div>
+                
+                <!-- Collection 2 -->
+                <div class="collection-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="assets/images/darsaha/collection-2.jpg" alt="Sleepwear" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <a href="#" class="px-6 py-2 bg-white text-gray-800 font-medium rounded-full">View Collection</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Sleepwear</h3>
+                        <p class="text-gray-600 text-sm">Indulge in our luxurious sleepwear designed for ultimate comfort.</p>
+                    </div>
+                </div>
+                
+                <!-- Collection 3 -->
+                <div class="collection-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="assets/images/darsaha/collection-3.jpg" alt="Bridal Lingerie" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <a href="#" class="px-6 py-2 bg-white text-gray-800 font-medium rounded-full">View Collection</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Bridal Lingerie</h3>
+                        <p class="text-gray-600 text-sm">Special pieces for your most memorable moments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="py-16 md:py-24" style="background-color: var(--light-bg);">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--secondary-color);">Featured Products</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover our carefully curated selection of premium lingerie and sleepwear</p>
+                <div class="w-20 h-1 bg-rose-300 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="assets/images/darsaha/product-1.jpg" alt="Lace Bralette" class="product-image w-full h-full object-cover">
+                        <div class="absolute top-4 right-4">
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="w-full py-2 bg-rose-400 text-white rounded-full hover:bg-rose-500 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-medium">Lace Bralette</h3>
+                                <p class="text-gray-600 text-sm">Lingerie</p>
+                            </div>
+                            <span class="font-semibold" style="color: var(--accent-color);">$49.99</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="assets/images/darsaha/product-2.jpg" alt="Silk Chemise" class="product-image w-full h-full object-cover">
+                        <div class="absolute top-4 right-4">
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="w-full py-2 bg-rose-400 text-white rounded-full hover:bg-rose-500 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-medium">Silk Chemise</h3>
+                                <p class="text-gray-600 text-sm">Sleepwear</p>
+                            </div>
+                            <span class="font-semibold" style="color: var(--accent-color);">$89.99</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="assets/images/darsaha/product-3.jpg" alt="Lace Bodysuit" class="product-image w-full h-full object-cover">
+                        <div class="absolute top-4 right-4">
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="w-full py-2 bg-rose-400 text-white rounded-full hover:bg-rose-500 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-medium">Lace Bodysuit</h3>
+                                <p class="text-gray-600 text-sm">Lingerie</p>
+                            </div>
+                            <span class="font-semibold" style="color: var(--accent-color);">$65.99</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="assets/images/darsaha/product-4.jpg" alt="Satin Robe" class="product-image w-full h-full object-cover">
+                        <div class="absolute top-4 right-4">
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="w-full py-2 bg-rose-400 text-white rounded-full hover:bg-rose-500 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-medium">Satin Robe</h3>
+                                <p class="text-gray-600 text-sm">Loungewear</p>
+                            </div>
+                            <span class="font-semibold" style="color: var(--accent-color);">$75.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-8 py-3 border-2 border-gray-800 text-gray-800 font-medium rounded-full hover:bg-gray-100 transition-colors">
+                    View All Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
+                    <div class="relative">
+                        <img src="assets/images/darsaha/about-1.jpg" alt="About Darsaha" class="rounded-lg shadow-xl w-full">
+                        <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-lg shadow-lg hidden md:block">
+                            <div class="text-4xl font-bold" style="color: var(--accent-color);">5+</div>
+                            <div class="text-gray-600">Years of Excellence</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--secondary-color);">About Darsaha</h2>
+                    <div class="w-20 h-1 bg-rose-300 mb-6"></div>
+                    <p class="text-gray-600 mb-6">
+                        Darsaha is a luxury lingerie and sleepwear brand that celebrates the beauty and confidence of every woman. 
+                        Founded with a vision to create elegant, comfortable, and high-quality intimate apparel, Darsaha has 
+                        become synonymous with sophistication and style.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        Our collections are designed with meticulous attention to detail, using only the finest fabrics and 
+                        craftsmanship. Each piece is created to make you feel beautiful, confident, and comfortable in your own skin.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3" style="background-color: var(--primary-color);">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                                <h4 class="font-semibold">Premium Quality</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 pl-11">Finest materials and craftsmanship</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3" style="background-color: var(--primary-color);">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                                <h4 class="font-semibold">Ethical Production</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 pl-11">Fair wages and safe working conditions</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3" style="background-color: var(--primary-color);">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                                <h4 class="font-semibold">Sustainable</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 pl-11">Eco-friendly materials and processes</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3" style="background-color: var(--primary-color);">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                                <h4 class="font-semibold">Perfect Fit</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 pl-11">Designed for all body types</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-block px-8 py-3 bg-rose-400 text-white font-medium rounded-full hover:bg-rose-500 transition-colors">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 md:py-24" style="background-color: var(--light-bg);">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--secondary-color);">What Our Customers Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Here's what our customers have to say about Darsaha.</p>
+                <div class="w-20 h-1 bg-rose-300 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 text-2xl">★★★★★</div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The quality of Darsaha's lingerie is exceptional. I've never felt more comfortable and confident. The attention to detail is remarkable."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah M." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Sarah M.</h4>
+                            <p class="text-sm text-gray-500">Loyal Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 text-2xl">★★★★★</div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"I purchased the silk chemise for my honeymoon, and it was absolutely perfect! The fabric feels amazing against the skin, and the fit was just right."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emily R." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Emily R.</h4>
+                            <p class="text-sm text-gray-500">First-time Buyer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 text-2xl">★★★★☆</div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Beautiful designs and great quality. The only reason I'm not giving 5 stars is because I wish there were more size options available."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jessica T." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Jessica T.</h4>
+                            <p class="text-sm text-gray-500">Returning Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--secondary-color);">Stay Updated</h2>
+            <p class="text-gray-600 mb-8">Subscribe to our newsletter and be the first to know about new collections, exclusive offers, and styling tips.</p>
+            
+            <form class="max-w-md mx-auto">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-6 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-rose-300">
+                    <button type="submit" class="px-8 py-3 bg-rose-400 text-white font-medium rounded-full hover:bg-rose-500 transition-colors">
+                        Subscribe
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500 mt-3">We respect your privacy. Unsubscribe at any time.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24" style="background-color: var(--light-bg);">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--secondary-color);">Get In Touch</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions about our products or need assistance with your order? We're here to help.</p>
+                <div class="w-20 h-1 bg-rose-300 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Send us a message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                                <input type="text" id="first-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                                <input type="text" id="last-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full md:w-auto px-8 py-3 bg-rose-400 text-white font-medium rounded-lg hover:bg-rose-500 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style="background-color: var(--primary-color);">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium text-gray-900">Our Location</h4>
+                                <p class="mt-1 text-gray-600">123 Fashion Avenue, Downtown<br>Algiers, Algeria</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style="background-color: var(--primary-color);">
+                                <i class="fas fa-phone-alt text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium text-gray-900">Phone Number</h4>
+                                <p class="mt-1 text-gray-600">+213 123 456 789<br>Mon - Fri, 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style="background-color: var(--primary-color);">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium text-gray-900">Email Address</h4>
+                                <p class="mt-1 text-gray-600">info@darsaha.com<br>support@darsaha.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4">
+                            <h4 class="font-medium text-gray-900 mb-3">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-rose-400 hover:text-white transition-colors">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-rose-400 hover:text-white transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-rose-400 hover:text-white transition-colors">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-rose-400 hover:text-white transition-colors">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <a href="#" class="text-2xl font-bold" style="color: var(--accent-color);">Darsaha</a>
+                    <p class="mt-4 text-gray-400">Luxury lingerie and sleepwear designed for the modern woman. Experience comfort, elegance, and confidence with our exclusive collections.</p>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Lingerie</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sleepwear</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Loungewear</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Bridal</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Track Order</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">About Us</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Our Story</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Wholesale</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2025 Darsaha. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <img src="https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png" alt="PayPal" class="h-6">
+                    <img src="https://cdn.pixabay.com/photo/2015/05/26/09/37/visa-784404_1280.png" alt="Visa" class="h-6">
+                    <img src="https://cdn.pixabay.com/photo/2015/05/26/09/37/master-card-784424_1280.png" alt="Mastercard" class="h-6">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-rose-400 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for fixed header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

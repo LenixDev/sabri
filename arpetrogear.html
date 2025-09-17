@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AR Petro Gear - Professional Workwear & Industrial Clothing</title>
+    <link href="assets/images/arpetrogear/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #1E3A8A;
+            --secondary-color: #0F172A;
+            --accent-color: #F59E0B;
+            --text-primary: #1E293B;
+            --text-secondary: #475569;
+            --light-bg: #F8FAFC;
+            --dark-bg: #0F172A;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-primary);
+            background-color: #ffffff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+            border: 1px solid #E2E8F0;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            border-color: #CBD5E1;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(245, 158, 11, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--accent-color);
+            font-size: 24px;
+        }
+        
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .category-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 100%);
+            padding: 30px 20px 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed w-full bg-white z-50 shadow-sm">
+        <div class="bg-gray-900 text-white text-xs py-1 px-4 text-center">
+            <p>Professional Workwear & Industrial Clothing Solutions</p>
+        </div>
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold tracking-tight" style="color: var(--primary-color);">AR PETRO GEAR</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Home</a>
+                    <a href="#products" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Products</a>
+                    <a href="#categories" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Categories</a>
+                    <a href="#features" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Features</a>
+                    <a href="#about" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">About</a>
+                    <a href="#contact" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Contact</a>
+                </nav>
+                
+                <!-- Icons -->
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+213123456789" class="hidden md:flex items-center text-gray-700 hover:text-gray-900">
+                        <i class="fas fa-phone-alt mr-2"></i>
+                        <span class="text-sm font-medium">+213 123 456 789</span>
+                    </a>
+                    <button class="p-2 text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-gray-900 relative">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <span class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">Home</a>
+                    <a href="#products" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">Products</a>
+                    <a href="#categories" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">Categories</a>
+                    <a href="#features" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">Features</a>
+                    <a href="#about" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">About</a>
+                    <a href="#contact" class="block py-2 text-gray-700 hover:text-gray-900">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden text-white">
+        <div class="absolute inset-0">
+            <img src="assets/images/arpetrogear/hero-bg.jpg" alt="Industrial Workwear" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <span class="inline-block bg-yellow-500 text-yellow-900 text-xs font-semibold px-3 py-1 rounded-full mb-4">INDUSTRIAL STRENGTH WORKWEAR</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    Professional Workwear for Demanding Industries
+                </h1>
+                <p class="text-lg text-gray-200 mb-8">
+                    High-performance workwear designed for oil & gas, construction, and industrial professionals. Built to withstand the toughest conditions while ensuring maximum comfort and safety.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#products" class="px-8 py-3 bg-yellow-500 text-gray-900 font-medium rounded hover:bg-yellow-600 transition-colors text-center">
+                        View Products
+                    </a>
+                    <a href="#contact" class="px-8 py-3 border-2 border-white text-white font-medium rounded hover:bg-white/10 transition-colors text-center">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-color);">Why Choose AR Petro Gear</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Safety First</h3>
+                    <p class="text-gray-600">Our workwear meets and exceeds industry safety standards to ensure maximum protection in hazardous environments.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Durable Construction</h3>
+                    <p class="text-gray-600">Made from high-quality, durable materials designed to withstand the toughest working conditions.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">All-Day Comfort</h3>
+                    <p class="text-gray-600">Ergonomic designs that provide comfort during long hours of work without compromising on protection.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Industry Certified</h3>
+                    <p class="text-gray-600">Compliant with international safety standards and certifications for various industrial applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-color);">Our Product Categories</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our comprehensive range of industrial workwear and safety equipment</p>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Category 1 -->
+                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
+                    <img src="assets/images/arpetrogear/category1.jpg" alt="Flame Resistant Clothing" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-xl font-bold">Flame Resistant Clothing</h3>
+                        <p class="text-sm text-gray-200 mt-1">Protective gear for high-risk environments</p>
+                    </div>
+                </a>
+                
+                <!-- Category 2 -->
+                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
+                    <img src="assets/images/arpetrogear/category2.jpg" alt="High-Visibility Workwear" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-xl font-bold">High-Visibility Workwear</h3>
+                        <p class="text-sm text-gray-200 mt-1">Stay visible in low-light conditions</p>
+                    </div>
+                </a>
+                
+                <!-- Category 3 -->
+                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
+                    <img src="assets/images/arpetrogear/category3.jpg" alt="Coveralls & Overalls" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-xl font-bold">Coveralls & Overalls</h3>
+                        <p class="text-sm text-gray-200 mt-1">Full-body protection for industrial work</p>
+                    </div>
+                </a>
+                
+                <!-- Category 4 -->
+                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
+                    <img src="assets/images/arpetrogear/category4.jpg" alt="Safety Footwear" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-xl font-bold">Safety Footwear</h3>
+                        <p class="text-sm text-gray-200 mt-1">Protective boots for hazardous environments</p>
+                    </div>
+                </a>
+                
+                <!-- Category 5 -->
+                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
+                    <img src="assets/images/arpetrogear/category5.jpg" alt="Head & Face Protection" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-xl font-bold">Head & Face Protection</h3>
+                        <p class="text-sm text-gray-200 mt-1">Helmets, face shields, and more</p>
+                    </div>
+                </a>
+                
+                <!-- Category 6 -->
+                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
+                    <img src="assets/images/arpetrogear/category6.jpg" alt="Winter Workwear" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-xl font-bold">Winter Workwear</h3>
+                        <p class="text-sm text-gray-200 mt-1">Insulated protection for cold conditions</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2" style="color: var(--primary-color);">Featured Products</h2>
+                    <div class="w-20 h-1 bg-yellow-500 mx-auto md:mx-0 mt-4"></div>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="px-4 py-2 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 focus:outline-none">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="px-4 py-2 bg-white border-t border-b border-r border-gray-300 rounded-r-lg hover:bg-gray-100 focus:outline-none">
+                        <i class="fas fa-list"></i>
+                    </button>
+                    <select class="ml-4 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none">
+                        <option>Sort by</option>
+                        <option>Newest</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Most Popular</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="assets/images/arpetrogear/product1.jpg" alt="FR Coverall" class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3">
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                                Add to Cart
+                            </button>
+                            <a href="#" class="block mt-2 text-sm text-blue-600 hover:underline">Quick View</a>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-semibold">FR Coverall Pro</h3>
+                                <p class="text-gray-600 text-sm">Flame Resistant</p>
+                            </div>
+                            <span class="font-bold text-lg" style="color: var(--primary-color);">$129.99</span>
+                        </div>
+                        <div class="mt-3 flex items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(24)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="assets/images/arpetrogear/product2.jpg" alt="Safety Boots" class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3">
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                                Add to Cart
+                            </button>
+                            <a href="#" class="block mt-2 text-sm text-blue-600 hover:underline">Quick View</a>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-semibold">Steel Toe Boots</h3>
+                                <p class="text-gray-600 text-sm">Safety Footwear</p>
+                            </div>
+                            <span class="font-bold text-lg" style="color: var(--primary-color);">$89.99</span>
+                        </div>
+                        <div class="mt-3 flex items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(36)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="assets/images/arpetrogear/product3.jpg" alt="Hi-Vis Jacket" class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3">
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                                Add to Cart
+                            </button>
+                            <a href="#" class="block mt-2 text-sm text-blue-600 hover:underline">Quick View</a>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-semibold">Hi-Vis Safety Jacket</h3>
+                                <p class="text-gray-600 text-sm">High Visibility</p>
+                            </div>
+                            <span class="font-bold text-lg" style="color: var(--primary-color);">$59.99</span>
+                        </div>
+                        <div class="mt-3 flex items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(42)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="assets/images/arpetrogear/product4.jpg" alt="Hard Hat" class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3">
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                                Add to Cart
+                            </button>
+                            <a href="#" class="block mt-2 text-sm text-blue-600 hover:underline">Quick View</a>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-semibold">Industrial Hard Hat</h3>
+                                <p class="text-gray-600 text-sm">Head Protection</p>
+                            </div>
+                            <span class="font-bold text-lg" style="color: var(--primary-color);">$34.99</span>
+                        </div>
+                        <div class="mt-3 flex items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(18)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-8 py-3 border-2 border-blue-600 text-blue-600 font-medium rounded hover:bg-blue-50 transition-colors">
+                    View All Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <img src="assets/images/arpetrogear/about.jpg" alt="About AR Petro Gear" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--primary-color);">About AR Petro Gear</h2>
+                    <div class="w-20 h-1 bg-yellow-500 mb-6"></div>
+                    <p class="text-gray-600 mb-6">
+                        AR Petro Gear is a leading manufacturer and supplier of high-quality industrial workwear and safety equipment. With years of experience in the industry, we have established ourselves as a trusted partner for businesses in the oil & gas, construction, manufacturing, and utility sectors.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        Our commitment to quality, safety, and innovation has made us the preferred choice for companies that prioritize the well-being of their workforce. We understand the challenges of working in demanding environments, which is why we design our products to meet the highest industry standards.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold">Quality Assurance</h4>
+                                <p class="text-sm text-gray-600">Rigorous testing and quality control</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold">Industry Compliance</h4>
+                                <p class="text-sm text-gray-600">Meets international safety standards</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold">Expert Support</h4>
+                                <p class="text-sm text-gray-600">Knowledgeable customer service team</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold">Fast Delivery</h4>
+                                <p class="text-sm text-gray-600">Reliable shipping options</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-block px-8 py-3 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition-colors">
+                        Contact Us Today
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-color);">What Our Clients Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Hear from companies that trust AR Petro Gear for their industrial workwear needs</p>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-2xl">★★★★★</div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"AR Petro Gear's flame-resistant clothing has been a game-changer for our field technicians. The quality and durability are unmatched in the industry."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John D." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">John D.</h4>
+                            <p class="text-sm text-gray-500">Safety Manager, PetroTech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-2xl">★★★★★</div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"We've been using AR Petro Gear's workwear for over 5 years now. Their products stand up to the toughest conditions on our construction sites."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah K." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Sarah K.</h4>
+                            <p class="text-sm text-gray-500">Operations Director, BuildRight Constructions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-2xl">★★★★☆</div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Great quality products and excellent customer service. Our team is very satisfied with the comfort and protection of their workwear."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Michael T." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Michael T.</h4>
+                            <p class="text-sm text-gray-500">Procurement Officer, PowerGrid Utilities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-blue-600 font-medium hover:underline">
+                    View More Testimonials
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 text-white" style="background-color: var(--primary-color);">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Equip Your Team?</h2>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">Contact us today to discuss your industrial workwear and safety equipment needs.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#contact" class="px-8 py-3 bg-white text-blue-900 font-medium rounded hover:bg-gray-100 transition-colors">
+                    Request a Quote
+                </a>
+                <a href="tel:+213123456789" class="px-8 py-3 border-2 border-white font-medium rounded hover:bg-white/10 transition-colors">
+                    <i class="fas fa-phone-alt mr-2"></i> +213 123 456 789
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-color);">Contact Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions or need assistance? Our team is here to help.</p>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Send us a message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="first-name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="last-name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company Name <span class="text-red-500">*</span></label>
+                            <input type="text" id="company" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject <span class="text-red-500">*</span></label>
+                            <input type="text" id="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message <span class="text-red-500">*</span></label>
+                            <textarea id="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full md:w-auto px-8 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Our Information</h3>
+                    <div class="bg-gray-50 p-8 rounded-lg h-full">
+                        <div class="space-y-8">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-900">Head Office</h4>
+                                    <p class="mt-1 text-gray-600">123 Industrial Zone, Sidi M'Hamed<br>Algiers, Algeria</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-900">Phone</h4>
+                                    <p class="mt-1 text-gray-600">
+                                        +213 123 456 789 (Sales)<br>
+                                        +213 123 456 788 (Support)
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-900">Email</h4>
+                                    <p class="mt-1 text-gray-600">
+                                        sales@arpetrogear.com<br>
+                                        support@arpetrogear.com
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-900">Business Hours</h4>
+                                    <p class="mt-1 text-gray-600">
+                                        Monday - Friday: 8:00 AM - 5:00 PM<br>
+                                        Saturday: 9:00 AM - 1:00 PM<br>
+                                        Sunday: Closed
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="font-medium text-gray-900 mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-blue-400 text-white flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center hover:bg-red-700 transition-colors">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-blue-700 text-white flex items-center justify-center hover:bg-blue-800 transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center hover:bg-orange-600 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102623.8216328087!2d3.0588227!3d36.7537683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128e511d40ec1f2b%3A0x5e5f2b8b7b0a3b0!2sAlgiers%2C%20Algeria!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">About AR Petro Gear</h3>
+                    <p class="text-sm text-gray-400 mb-6">Leading manufacturer and supplier of high-quality industrial workwear and safety equipment for demanding industries.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-sm text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#products" class="text-sm text-gray-400 hover:text-white transition-colors">Products</a></li>
+                        <li><a href="#categories" class="text-sm text-gray-400 hover:text-white transition-colors">Categories</a></li>
+                        <li><a href="#features" class="text-sm text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#about" class="text-sm text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Product Categories</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Flame Resistant Clothing</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">High-Visibility Workwear</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Coveralls & Overalls</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Safety Footwear</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Head & Face Protection</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Winter Workwear</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-sm text-gray-400 mb-4">Subscribe to our newsletter for the latest updates, products, and offers.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Your email address" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-white text-sm">
+                        <button type="submit" class="w-full py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700 transition-colors">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-500 text-center md:text-left mb-4 md:mb-0">© 2025 AR Petro Gear. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Calculate header height for offset
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

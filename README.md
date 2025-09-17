@@ -38,7 +38,7 @@ html_app/
 ├── css/
 │   ├── tailwind.css   # Tailwind source file with custom utilities
 │   └── main.css       # Compiled CSS (generated)
-├── pages/             # HTML pages
+├──              # HTML pages
 ├── index.html         # Main entry point
 ├── package.json       # Project dependencies and scripts
 └── tailwind.config.js # Tailwind CSS configuration
