@@ -83,7 +83,7 @@
                 <div
                     class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--border-color)] py-4">
                     <a class="flex items-center gap-3 text-white" href="#">
-                        <img src="../assets/images/sabri/Logo Sabri.JPG" alt="" width="120">
+                        <img loading="lazy" src="../assets/images/sabri/Logo Sabri.JPG" alt="" width="120">
                         <h1 class="text-xl font-bold tracking-tight">Sabri Libass Fashion</h1>
                     </a>
                     <nav class="hidden lg:flex items-center gap-8">
@@ -171,7 +171,7 @@
                             }" x-init="init()" x-on:mouseenter="stop()" x-on:mouseleave="start()">
                             <div class="relative h-64">
                                 <template x-for="(image, index) in images" :key="index">
-                                    <img :src="image" alt="" class="absolute inset-0 w-full h-full object-cover"
+                                    <img loading="lazy" :src="image" alt="" class="absolute inset-0 w-full h-full object-cover"
                                         x-show="activeImage === index" x-transition.opacity.duration.700ms />
                                 </template>
                             </div>
@@ -218,7 +218,7 @@
                         }" x-init="init()" x-on:mouseenter="stop()" x-on:mouseleave="start()">
                             <div class="relative h-64">
                                 <template x-for="(image, index) in images" :key="index">
-                                    <img :src="image" alt="" class="absolute inset-0 w-full h-full object-cover"
+                                    <img loading="lazy" :src="image" alt="" class="absolute inset-0 w-full h-full object-cover"
                                         x-show="activeImage === index" x-transition.opacity.duration.700ms />
                                 </template>
                             </div>
@@ -251,7 +251,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <a class="group relative block overflow-hidden rounded-xl border border-[var(--border-color)]"
                             href="./arpetrogear.html">
-                            <img alt="Brand 1"
+                            <img loading="lazy" alt="Brand 1"
                                 class="w-full h-96 object-cover transform transition-transform duration-500 group-hover:scale-105"
                                 src="../assets/images/arpetrogear/22.26.40_36e0a7a1.JPG" />
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
@@ -274,7 +274,7 @@
                         </a>
                         <a class="group relative block overflow-hidden rounded-xl border border-[var(--border-color)]"
                             href="./southwork.html">
-                            <img alt="Brand 2"
+                            <img loading="lazy" alt="Brand 2"
                                 class="w-full h-96 object-cover transform transition-transform duration-500 group-hover:scale-105"
                                 src="../assets/images/southwork/logo.JPG" />
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
@@ -297,7 +297,7 @@
                         </a>
                         <a class="group relative block overflow-hidden rounded-xl border border-[var(--border-color)]"
                             href="./darsaha.html">
-                            <img alt="Brand 3"
+                            <img loading="lazy" alt="Brand 3"
                                 class="w-full h-96 object-cover transform transition-transform duration-500 group-hover:scale-105"
                                 src="../assets/images/darsaha/darsaha6.png" />
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
@@ -320,7 +320,7 @@
                         </a>
                         <a class="group relative block overflow-hidden rounded-xl border border-[var(--border-color)]"
                             href="./zedline.html">
-                            <img alt="Brand 4"
+                            <img loading="lazy" alt="Brand 4"
                                 class="w-full h-96 object-cover transform transition-transform duration-500 group-hover:scale-105"
                                 src="../assets/images/zedline/logo.JPG" />
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
@@ -429,7 +429,7 @@
                     <!-- Logo and Description -->
                     <div class="space-y-4">
                         <a class="flex items-center gap-3 text-white" href="#">
-                            <img src="../assets/images/sabri/Logo Sabri.JPG" alt="Sabri Libass Fashion Logo"
+                            <img loading="lazy" src="../assets/images/sabri/Logo Sabri.JPG" alt="Sabri Libass Fashion Logo"
                                 width="35" />
                             <h1 class="text-xl font-bold tracking-tight">Sabri Libass Fashion</h1>
                         </a>
@@ -564,8 +564,8 @@
         function preloadImages() {
             const imageUrls = [
                 '../assets/images/photo_2025-09-14_13-59-58.jpg',
-                '../assets/images/bousaada1.jpg',
-                '../assets/images/c604b9b6-89f8-473e-b036-8516604376fb.jpg'
+                '../assets/images/bousaada1.png',
+                '../assets/images/sabri/c604b9b6-89f8-473e-b036-8516604376fb.JPG'
             ];
 
             imageUrls.forEach(url => {
