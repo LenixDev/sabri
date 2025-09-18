@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <style type="text/tailwindcss">
         :root {
             --primary-color: #E8C4B8;
@@ -49,6 +50,98 @@
         
         .product-card:hover .product-image {
             transform: scale(1.05);
+        }
+        
+        /* Carousel Styles */
+        .product-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            will-change: transform;
+        }
+        
+        .carousel-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .carousel-slide img {
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-prev:hover,
+        .carousel-next:hover {
+            background: white;
+        }
+        
+        .carousel-prev {
+            left: 8px;
+        }
+        
+        .carousel-next {
+            right: 8px;
+        }
+        
+        .carousel-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active,
+        .carousel-dot:hover {
+            background: white;
         }
         
         .nav-link {
@@ -92,7 +185,7 @@
                 
                 <!-- Icons -->
                 <div class="flex items-center space-x-4">
-                    <button class="p-2 text-gray-600 hover:text-gray-900">
+                    <!-- <button class="p-2 text-gray-600 hover:text-gray-900">
                         <i class="fas fa-search text-lg"></i>
                     </button>
                     <button class="p-2 text-gray-600 hover:text-gray-900">
@@ -101,7 +194,7 @@
                     <button class="p-2 text-gray-600 hover:text-gray-900 relative">
                         <i class="fas fa-shopping-bag text-lg"></i>
                         <span class="absolute -top-1 -right-1 bg-rose-400 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
-                    </button>
+                    </button> -->
                     
                     <!-- Mobile menu button -->
                     <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 hover:text-gray-900">
@@ -145,7 +238,7 @@
                 </div>
                 <div class="md:w-1/2 relative">
                     <div class="relative">
-                        <img src="assets/images/darsaha/hero-image.jpg" alt="Darsaha Lingerie" class="rounded-lg shadow-xl w-full max-w-lg mx-auto">
+                        <img src="assets/images/darsaha/darsaha6.png" alt="Darsaha Lingerie" class="rounded-lg shadow-xl w-full max-w-lg mx-auto">
                         <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg hidden md:block">
                             <div class="text-center">
                                 <div class="text-2xl font-bold" style="color: var(--accent-color);">New Collection</div>
@@ -171,10 +264,37 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Collection 1 -->
                 <div class="collection-card bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden h-80">
-                        <img src="assets/images/darsaha/collection-1.jpg" alt="Luxury Lingerie" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                            <a href="#" class="px-6 py-2 bg-white text-gray-800 font-medium rounded-full">View Collection</a>
+                    <div class="relative overflow-hidden h-80 product-carousel">
+                        <div class="carousel-track flex transition-transform duration-300 h-full w-full">
+                            <!-- Image 1 -->
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/images/darsaha/darsaha6.png" alt="Luxury Lingerie" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Image 2 -->
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/images/darsaha/darsaha8.png" alt="Luxury Lingerie" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Image 3 -->
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/images/darsaha/darsaha9.png" alt="Luxury Lingerie" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <!-- Navigation Arrows -->
+                        <button class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 w-8 h-8 rounded-full shadow-md flex items-center justify-center text-gray-700 hover:bg-white transition-colors z-10">
+                            <i class="fas fa-chevron-left text-sm"></i>
+                        </button>
+                        <button class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 w-8 h-8 rounded-full shadow-md flex items-center justify-center text-gray-700 hover:bg-white transition-colors z-10">
+                            <i class="fas fa-chevron-right text-sm"></i>
+                        </button>
+                        <!-- Pagination Dots -->
+                        <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
+                            <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="0"></button>
+                            <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="1"></button>
+                            <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="2"></button>
+                        </div>
+                        <!-- View Collection Button -->
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity pointer-events-none">
+                            <a href="#" class="px-6 py-2 bg-white text-gray-800 font-medium rounded-full pointer-events-auto">View Collection</a>
                         </div>
                     </div>
                     <div class="p-6">
@@ -185,10 +305,37 @@
                 
                 <!-- Collection 2 -->
                 <div class="collection-card bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden h-80">
-                        <img src="assets/images/darsaha/collection-2.jpg" alt="Sleepwear" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                            <a href="#" class="px-6 py-2 bg-white text-gray-800 font-medium rounded-full">View Collection</a>
+                    <div class="relative overflow-hidden h-80 product-carousel">
+                        <div class="carousel-track flex transition-transform duration-300 h-full w-full">
+                            <!-- Image 1 -->
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/images/darsaha/darsaha9.png" alt="Sleepwear" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Image 2 -->
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/images/darsaha/darsaha8.png" alt="Sleepwear" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Image 3 -->
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/images/darsaha/darsaha6.png" alt="Sleepwear" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <!-- Navigation Arrows -->
+                        <button class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 w-8 h-8 rounded-full shadow-md flex items-center justify-center text-gray-700 hover:bg-white transition-colors z-10">
+                            <i class="fas fa-chevron-left text-sm"></i>
+                        </button>
+                        <button class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 w-8 h-8 rounded-full shadow-md flex items-center justify-center text-gray-700 hover:bg-white transition-colors z-10">
+                            <i class="fas fa-chevron-right text-sm"></i>
+                        </button>
+                        <!-- Pagination Dots -->
+                        <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
+                            <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="0"></button>
+                            <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="1"></button>
+                            <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="2"></button>
+                        </div>
+                        <!-- View Collection Button -->
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity pointer-events-none">
+                            <a href="#" class="px-6 py-2 bg-white text-gray-800 font-medium rounded-full pointer-events-auto">View Collection</a>
                         </div>
                     </div>
                     <div class="p-6">
@@ -199,10 +346,37 @@
                 
                 <!-- Collection 3 -->
                 <div class="collection-card bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden h-80">
-                        <img src="assets/images/darsaha/collection-3.jpg" alt="Bridal Lingerie" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                            <a href="#" class="px-6 py-2 bg-white text-gray-800 font-medium rounded-full">View Collection</a>
+                    <div class="relative overflow-hidden h-80 product-carousel">
+                        <div class="carousel-track flex transition-transform duration-300 h-full w-full">
+                            <!-- Image 1 -->
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/images/darsaha/darsaha8.png" alt="Bridal Lingerie" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Image 2 -->
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/images/darsaha/darsaha6.png" alt="Bridal Lingerie" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Image 3 -->
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/images/darsaha/darsaha9.png" alt="Bridal Lingerie" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <!-- Navigation Arrows -->
+                        <button class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 w-8 h-8 rounded-full shadow-md flex items-center justify-center text-gray-700 hover:bg-white transition-colors z-10">
+                            <i class="fas fa-chevron-left text-sm"></i>
+                        </button>
+                        <button class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 w-8 h-8 rounded-full shadow-md flex items-center justify-center text-gray-700 hover:bg-white transition-colors z-10">
+                            <i class="fas fa-chevron-right text-sm"></i>
+                        </button>
+                        <!-- Pagination Dots -->
+                        <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
+                            <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="0"></button>
+                            <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="1"></button>
+                            <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="2"></button>
+                        </div>
+                        <!-- View Collection Button -->
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity pointer-events-none">
+                            <a href="#" class="px-6 py-2 bg-white text-gray-800 font-medium rounded-full pointer-events-auto">View Collection</a>
                         </div>
                     </div>
                     <div class="p-6">
@@ -215,7 +389,7 @@
     </section>
 
     <!-- Featured Products -->
-    <section id="products" class="py-16 md:py-24" style="background-color: var(--light-bg);">
+    <!-- <section id="products" class="py-16 md:py-24" style="background-color: var(--light-bg);">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--secondary-color);">Featured Products</h2>
@@ -224,7 +398,6 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Product 1 -->
                 <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
                     <div class="relative overflow-hidden h-80">
                         <img src="assets/images/darsaha/product-1.jpg" alt="Lace Bralette" class="product-image w-full h-full object-cover">
@@ -250,7 +423,6 @@
                     </div>
                 </div>
                 
-                <!-- Product 2 -->
                 <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
                     <div class="relative overflow-hidden h-80">
                         <img src="assets/images/darsaha/product-2.jpg" alt="Silk Chemise" class="product-image w-full h-full object-cover">
@@ -276,7 +448,6 @@
                     </div>
                 </div>
                 
-                <!-- Product 3 -->
                 <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
                     <div class="relative overflow-hidden h-80">
                         <img src="assets/images/darsaha/product-3.jpg" alt="Lace Bodysuit" class="product-image w-full h-full object-cover">
@@ -302,7 +473,6 @@
                     </div>
                 </div>
                 
-                <!-- Product 4 -->
                 <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
                     <div class="relative overflow-hidden h-80">
                         <img src="assets/images/darsaha/product-4.jpg" alt="Satin Robe" class="product-image w-full h-full object-cover">
@@ -335,7 +505,7 @@
                 </a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- About Section -->
     <section id="about" class="py-16 md:py-24 bg-white">
@@ -343,7 +513,7 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
                     <div class="relative">
-                        <img src="assets/images/darsaha/about-1.jpg" alt="About Darsaha" class="rounded-lg shadow-xl w-full">
+                        <img src="assets/images/darsaha/darsaha6.png" alt="About Darsaha" class="rounded-lg shadow-xl w-full">
                         <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-lg shadow-lg hidden md:block">
                             <div class="text-4xl font-bold" style="color: var(--accent-color);">5+</div>
                             <div class="text-gray-600">Years of Excellence</div>
@@ -409,7 +579,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-16 md:py-24" style="background-color: var(--light-bg);">
+    <!-- <section class="py-16 md:py-24" style="background-color: var(--light-bg);">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--secondary-color);">What Our Customers Say</h2>
@@ -418,7 +588,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
                 <div class="bg-white p-8 rounded-xl shadow-md">
                     <div class="flex items-center mb-4">
                         <div class="text-amber-400 text-2xl">★★★★★</div>
@@ -433,7 +602,6 @@
                     </div>
                 </div>
                 
-                <!-- Testimonial 2 -->
                 <div class="bg-white p-8 rounded-xl shadow-md">
                     <div class="flex items-center mb-4">
                         <div class="text-amber-400 text-2xl">★★★★★</div>
@@ -448,7 +616,6 @@
                     </div>
                 </div>
                 
-                <!-- Testimonial 3 -->
                 <div class="bg-white p-8 rounded-xl shadow-md">
                     <div class="flex items-center mb-4">
                         <div class="text-amber-400 text-2xl">★★★★☆</div>
@@ -464,10 +631,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Newsletter -->
-    <section class="py-16 md:py-24 bg-white">
+    <!-- <section class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6 max-w-4xl text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--secondary-color);">Stay Updated</h2>
             <p class="text-gray-600 mb-8">Subscribe to our newsletter and be the first to know about new collections, exclusive offers, and styling tips.</p>
@@ -482,7 +649,7 @@
                 <p class="text-xs text-gray-500 mt-3">We respect your privacy. Unsubscribe at any time.</p>
             </form>
         </div>
-    </section>
+    </section> -->
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 md:py-24" style="background-color: var(--light-bg);">
@@ -494,7 +661,7 @@
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
+                <!-- <div>
                     <h3 class="text-xl font-semibold mb-6">Send us a message</h3>
                     <form class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -523,7 +690,7 @@
                             Send Message
                         </button>
                     </form>
-                </div>
+                </div> -->
                 
                 <div>
                     <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
@@ -544,7 +711,7 @@
                             </div>
                             <div class="ml-4">
                                 <h4 class="font-medium text-gray-900">Phone Number</h4>
-                                <p class="mt-1 text-gray-600">+213 123 456 789<br>Mon - Fri, 9:00 AM - 6:00 PM</p>
+                                <p class="mt-1 text-gray-600">+213 550 410 106<br>Sat - Thu, 8:00 AM - 6:00 PM</p>
                             </div>
                         </div>
                         
@@ -554,11 +721,11 @@
                             </div>
                             <div class="ml-4">
                                 <h4 class="font-medium text-gray-900">Email Address</h4>
-                                <p class="mt-1 text-gray-600">info@darsaha.com<br>support@darsaha.com</p>
+                                <p class="mt-1 text-gray-600">contact@sabrilibass.com</p>
                             </div>
                         </div>
                         
-                        <div class="pt-4">
+                        <!-- <div class="pt-4">
                             <h4 class="font-medium text-gray-900 mb-3">Follow Us</h4>
                             <div class="flex space-x-4">
                                 <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-rose-400 hover:text-white transition-colors">
@@ -574,7 +741,7 @@
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -595,16 +762,10 @@
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-pinterest-p"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-youtube"></i>
-                        </a>
                     </div>
                 </div>
                 
-                <div>
+                <!-- <div>
                     <h3 class="text-lg font-semibold mb-4">Shop</h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">New Arrivals</a></li>
@@ -638,15 +799,13 @@
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Wholesale</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-400 text-sm">© 2025 Darsaha. All rights reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
-                    <img src="https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png" alt="PayPal" class="h-6">
-                    <img src="https://cdn.pixabay.com/photo/2015/05/26/09/37/visa-784404_1280.png" alt="Visa" class="h-6">
-                    <img src="https://cdn.pixabay.com/photo/2015/05/26/09/37/master-card-784424_1280.png" alt="Mastercard" class="h-6">
+                    <a href="https://github.com/lenixdev">Developer</a>
                 </div>
             </div>
         </div>
@@ -658,32 +817,281 @@
     </button>
 
     <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+        // Initialize all product carousels when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    const menu = document.getElementById('mobile-menu');
+                    if (menu) {
+                        menu.classList.toggle('hidden');
+                    }
+                });
+            }
 
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
+            // Initialize all product carousels
+            const carousels = document.querySelectorAll('.product-carousel');
+            
+            carousels.forEach((carousel, carouselIndex) => {
+                const track = carousel.querySelector('.carousel-track');
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const prevBtn = carousel.querySelector('.carousel-prev');
+                const nextBtn = carousel.querySelector('.carousel-next');
+                const dots = carousel.querySelectorAll('.carousel-dot');
+                
+                if (!track || !slides.length) return; // Skip if no track or slides found
+                
+                let currentIndex = 0;
+                const totalSlides = slides.length;
+                let isDragging = false;
+                let startPos = 0;
+                let currentTranslate = 0;
+                let prevTranslate = 0;
+                let animationId = null;
+                
+                // Set initial active dot
+                updateDots();
+                
+                // Set initial slide width
+                slides.forEach(slide => {
+                    slide.style.width = '100%';
+                    slide.style.flexShrink = '0';
+                });
+                
+                // Previous button click
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                        updateCarousel();
+                    });
+                }
+                
+                // Next button click
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        currentIndex = (currentIndex + 1) % totalSlides;
+                        updateCarousel();
+                    });
+                }
+                
+                // Dot navigation
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        currentIndex = index;
+                        updateCarousel();
+                    });
+                });
+                
+                // Touch events for mobile
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
+                carousel.addEventListener('touchend', handleTouchEnd, { passive: true });
+                carousel.addEventListener('touchmove', handleTouchMove, { passive: false });
+                
+                // Mouse events for desktop
+                carousel.addEventListener('mousedown', dragStart);
+                carousel.addEventListener('mouseup', dragEnd);
+                carousel.addEventListener('mouseleave', dragEnd);
+                carousel.addEventListener('mousemove', drag);
+                
+                function handleTouchStart(e) {
+                    touchStartX = e.touches[0].clientX;
+                    startPos = touchStartX;
+                    isDragging = true;
+                    track.style.transition = 'none';
+                    
+                    // Store initial position
+                    const transform = window.getComputedStyle(track).transform;
+                    if (transform !== 'none') {
+                        const matrix = new DOMMatrixReadOnly(transform);
+                        prevTranslate = matrix.m41;
+                    } else {
+                        prevTranslate = 0;
+                    }
+                    
+                    // Cancel any ongoing animations
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                    }
+                }
+                
+                function handleTouchMove(e) {
+                    if (!isDragging) return;
+                    touchEndX = e.touches[0].clientX;
+                    const diff = touchEndX - touchStartX;
+                    
+                    // Prevent scrolling during horizontal drag
+                    if (Math.abs(diff) > 10) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    
+                    currentTranslate = prevTranslate + diff;
+                    setSliderPosition();
+                }
+                
+                function handleTouchEnd() {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    
+                    const threshold = track.offsetWidth * 0.1; // 10% of slide width as threshold
+                    const diff = touchEndX - touchStartX;
+                    
+                    if (Math.abs(diff) > threshold) {
+                        if (diff > 0) {
+                            // Swiped right - go to previous
+                            currentIndex = Math.max(currentIndex - 1, 0);
+                        } else {
+                            // Swiped left - go to next
+                            currentIndex = Math.min(currentIndex + 1, totalSlides - 1);
+                        }
+                    }
+                    
+                    updateCarousel();
+                }
+                
+                function dragStart(e) {
+                    if (e.button !== 0) return; // Only left mouse button
+                    
+                    startPos = e.clientX;
+                    isDragging = true;
+                    track.style.transition = 'none';
+                    
+                    // Store initial position
+                    const transform = window.getComputedStyle(track).transform;
+                    if (transform !== 'none') {
+                        const matrix = new DOMMatrixReadOnly(transform);
+                        prevTranslate = matrix.m41;
+                    } else {
+                        prevTranslate = 0;
+                    }
+                    
+                    // Cancel any ongoing animations
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                    }
+                    
+                    // Prevent text selection during drag
+                    e.preventDefault();
+                }
+                
+                function drag(e) {
+                    if (!isDragging) return;
+                    
+                    const currentPosition = e.clientX;
+                    const diff = currentPosition - startPos;
+                    currentTranslate = prevTranslate + diff;
+                    
+                    setSliderPosition();
+                }
+                
+                function dragEnd() {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    
+                    const threshold = track.offsetWidth * 0.1; // 10% of slide width as threshold
+                    
+                    if (Math.abs(currentTranslate - prevTranslate) > threshold) {
+                        if (currentTranslate < prevTranslate) {
+                            // Dragged left - go to next
+                            currentIndex = Math.min(currentIndex + 1, totalSlides - 1);
+                        } else {
+                            // Dragged right - go to previous
+                            currentIndex = Math.max(currentIndex - 1, 0);
+                        }
+                    }
+                    
+                    updateCarousel();
+                }
+                
+                function setSliderPosition() {
+                    // Limit the slider movement to the first and last slide
+                    const maxTranslate = 0;
+                    const minTranslate = -track.offsetWidth * (totalSlides - 1);
+                    
+                    // Apply boundaries
+                    currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, currentTranslate));
+                    
+                    // Apply the transform
+                    track.style.transform = `translateX(${currentTranslate}px)`;
+                }
+                
+                function updateCarousel() {
+                    // Cancel any ongoing animations
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                    }
+                    
+                    // Update track position with smooth transition
+                    track.style.transition = 'transform 0.3s ease-out';
+                    currentTranslate = -currentIndex * track.offsetWidth;
+                    track.style.transform = `translateX(${currentTranslate}px)`;
+                    
+                    // Update dots
+                    updateDots();
+                    
+                    // Reset transition after animation completes
+                    track.addEventListener('transitionend', () => {
+                        track.style.transition = 'none';
+                        prevTranslate = currentTranslate;
+                    }, { once: true });
+                }
+                
+                function updateDots() {
+                    dots.forEach((dot, index) => {
+                        if (index === currentIndex) {
+                            dot.classList.add('bg-white');
+                            dot.classList.remove('bg-white/50');
+                        } else {
+                            dot.classList.remove('bg-white');
+                            dot.classList.add('bg-white/50');
+                        }
+                    });
+                }
+                
+                // Initialize carousel
+                updateCarousel();
+                
+                // Handle window resize
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => {
+                        updateCarousel();
+                    }, 250);
+                });
+            });
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.remove('opacity-0', 'invisible');
+                        backToTopButton.classList.add('opacity-100', 'visible');
+                    } else {
+                        backToTopButton.classList.remove('opacity-100', 'visible');
+                        backToTopButton.classList.add('opacity-0', 'invisible');
+                    }
+                });
+                
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
             }
         });
-        
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
+    </script>
+    <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {

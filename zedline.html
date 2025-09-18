@@ -130,9 +130,9 @@
 </head>
 <body class="bg-white">
     <!-- Announcement Bar -->
-    <div class="bg-black text-white text-sm text-center py-2 px-4">
+    <!-- <div class="bg-black text-white text-sm text-center py-2 px-4">
         <p>Free shipping on all orders over $50 | New Collection Now Available</p>
-    </div>
+    </div> -->
 
     <!-- Header -->
     <header class="fixed w-full bg-white z-50 shadow-sm">
@@ -150,7 +150,7 @@
                 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
-                    <div class="dropdown relative">
+                    <!-- <div class="dropdown relative">
                         <button class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center">
                             New Arrivals
                             <i class="fas fa-chevron-down ml-1 text-xs"></i>
@@ -188,14 +188,14 @@
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Outerwear</a>
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Accessories</a>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <a href="#collections" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Collections</a>
-                    <a href="#sale" class="nav-link text-sm font-medium text-red-600 hover:text-red-700">Sale</a>
+                    <a href="#contact" class="nav-link text-sm font-medium text-red-600 hover:text-red-700">Contact</a>
                 </nav>
                 
                 <!-- Icons -->
-                <div class="flex items-center space-x-4">
+                <!-- <div class="flex items-center space-x-4">
                     <button class="p-2 text-gray-600 hover:text-gray-900 hidden md:block">
                         <i class="fas fa-search text-lg"></i>
                     </button>
@@ -206,13 +206,13 @@
                         <i class="fas fa-shopping-bag text-lg"></i>
                         <span class="absolute -top-1 -right-1 bg-pink-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
                     </button>
-                </div>
+                </div> -->
             </div>
             
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
                 <div class="flex flex-col space-y-3">
-                    <div class="border-b border-gray-100 pb-3">
+                    <!-- <div class="border-b border-gray-100 pb-3">
                         <button class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-gray-900">
                             <span>New Arrivals</span>
                             <i class="fas fa-chevron-down text-xs"></i>
@@ -250,7 +250,7 @@
                             <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Outerwear</a>
                             <a href="#" class="block py-1 text-gray-600 hover:text-gray-900">Accessories</a>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <a href="#collections" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">Collections</a>
                     <a href="#sale" class="block py-2 text-red-600 hover:text-red-700 border-b border-gray-100">Sale</a>
@@ -271,8 +271,8 @@
     <!-- Hero Section -->
     <section class="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden text-white">
         <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-black/30 z-10"></div>
-            <img src="assets/images/zedline/hero-bg.jpg" alt="Zedline Fashion" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/20 z-10"></div>
+            <img src="assets/images/zedline/IMG-20250910-WA0010.jpg" alt="something went wrong" class="w-full h-full object-cover">
         </div>
         <div class="container mx-auto px-6 relative z-20">
             <div class="max-w-2xl">
@@ -290,76 +290,292 @@
                     <a href="#collections" class="px-8 py-3 border-2 border-white text-white font-medium rounded hover:bg-white/10 transition-colors text-center">
                         View Collection
                     </a>
+                    <a href="./home.html" class="py-3 px-8 bg-white/10 border-2 border-white text-white font-medium rounded hover:bg-white/20 transition-colors inline-flex items-center gap-2">
+                        <i class="fas fa-arrow-left"></i>
+                        Go back to Sabri
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Categories -->
-    <section class="py-12 md:py-16 bg-white">
+    <section class="py-12 md:py-16 bg-white" id="collections">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Category 1 -->
-                <a href="#" class="group relative overflow-hidden rounded-lg h-64">
-                    <img src="assets/images/zedline/category-women.jpg" alt="Women's Collection" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 class="text-xl font-bold text-white">Women</h3>
-                        <p class="text-sm text-gray-200">New Arrivals</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                <!-- Category 1 - Women -->
+                <div class="group relative overflow-hidden rounded-lg h-80">
+                    <div class="category-carousel relative w-full h-full">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-100">
+                            <img src="assets/images/zedline/jersey/1fe8c827-3203-4169-b0d9-5c5ea9afc4b8.JPG" alt="something went wrong" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/201654ad-283d-4932-996d-1f91c6f1d90c.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/2266dbce-2459-41ff-b3e7-60f48a1887aa.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/29772364-55eb-427e-b2c6-4848cd99c71f.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/2caeba44-b518-4732-bb14-200ed3fc95d8.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/37529a12-522d-4d2a-9c94-9da5df159b3f.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/4188fcf3-146c-4d5d-ad0d-c3182c3477d4.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/424df7e8-3621-4b34-9517-adbdf997d1d9.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/589ae257-8997-4de9-820e-c18d585e4b5b.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/6feb0803-72f4-484d-a387-98d0726f08f8.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/e24f0273-6426-48cb-a5e4-3075647f94dd.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/d5df8586-3697-4427-be1b-9a4499911d4f.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/cca1f238-e2de-414b-8e17-636845c7c21f.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/ca604d77-9585-4380-84f2-0035359d8b46.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/c85ecc0f-e19e-4e5c-a6ae-973c12b7613e.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/a0e9f59c-a1a1-457f-b287-6daa201f11d7.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/jersey/9be4cd57-d194-4db5-ac0d-8bc25da3c551.JPG" alt="something went wrong 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Jerseys</h3>
+                                <p class="text-sm text-gray-200">Light & Airy Styles</p>
+                            </div>
+                        </div>
+                        <!-- Navigation -->
+                        <button class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                            <i class="fas fa-chevron-left text-sm"></i>
+                        </button>
+                        <button class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                            <i class="fas fa-chevron-right text-sm"></i>
+                        </button>
                     </div>
-                </a>
+                </div>
                 
-                <!-- Category 2 -->
-                <a href="#" class="group relative overflow-hidden rounded-lg h-64">
-                    <img src="assets/images/zedline/category-men.jpg" alt="Men's Collection" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 class="text-xl font-bold text-white">Men</h3>
-                        <p class="text-sm text-gray-200">Latest Styles</p>
+                <!-- Category 2 - Men -->
+                <div class="group relative overflow-hidden rounded-lg h-80">
+                    <div class="category-carousel relative w-full h-full">
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                            <img src="assets/images/zedline/IMG-20250910-WA0004.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Guides</h3>
+                                <p class="text-sm text-gray-200">Urban Essentials</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0005.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0006.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0007.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0008.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0009.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0010.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0011.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0012.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0013.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">  
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0014.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0015.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0">
+                          <img src="assets/images/zedline/IMG-20250910-WA0016.jpg" alt="something went wrong" class="w-full h-full object-cover">
+                          <div class="absolute inset-0 bg-black/20"></div>
+                          <div class="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 class="text-xl font-bold text-white">Guides</h3>
+                              <p class="text-sm text-gray-200">Urban Essentials</p>
+                          </div>
+                        </div>
+                        <!-- Navigation -->
+                        <button class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                            <i class="fas fa-chevron-left text-sm"></i>
+                        </button>
+                        <button class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                            <i class="fas fa-chevron-right text-sm"></i>
+                        </button>
                     </div>
-                </a>
-                
-                <!-- Category 3 -->
-                <a href="#" class="group relative overflow-hidden rounded-lg h-64 md:row-span-2">
-                    <img src="assets/images/zedline/category-accessories.jpg" alt="Accessories" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 class="text-2xl font-bold text-white">Accessories</h3>
-                        <p class="text-gray-200">Complete Your Look</p>
-                    </div>
-                </a>
-                
-                <!-- Category 4 -->
-                <a href="#" class="group relative overflow-hidden rounded-lg h-64">
-                    <img src="assets/images/zedline/category-sale.jpg" alt="Sale" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 class="text-xl font-bold text-white">Sale</h3>
-                        <p class="text-sm text-gray-200">Up to 50% Off</p>
-                    </div>
-                    <div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                        SALE
-                    </div>
-                </a>
-                
-                <!-- Category 5 -->
-                <a href="#" class="group relative overflow-hidden rounded-lg h-64">
-                    <img src="assets/images/zedline/category-new-arrivals.jpg" alt="New Arrivals" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 class="text-xl font-bold text-white">New Arrivals</h3>
-                        <p class="text-sm text-gray-200">Shop the Latest</p>
-                    </div>
-                    <div class="absolute top-4 right-4 bg-black text-white text-xs font-bold px-3 py-1 rounded-full">
-                        NEW
-                    </div>
-                </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- New Arrivals -->
-    <section id="new-arrivals" class="py-16 md:py-24 bg-gray-50">
+    <!-- <section id="new-arrivals" class="py-16 md:py-24 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">New Arrivals</h2>
@@ -385,11 +601,10 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Product 1 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden">
                     <div class="relative overflow-hidden">
                         <div class="aspect-w-1 aspect-h-1 w-full">
-                            <img src="assets/images/zedline/product1.jpg" alt="Product 1" class="w-full h-full object-cover">
+                            <img src="assets/images/zedline/jersey/product1.jpg" alt="Product 1" class="w-full h-full object-cover">
                         </div>
                         <div class="product-actions absolute bottom-0 left-0 right-0 p-4 bg-white/90 transform translate-y-full transition-all duration-300">
                             <button class="w-full py-2 bg-black text-white text-sm font-medium rounded hover:bg-gray-800 transition-colors">
@@ -434,11 +649,10 @@
                     </div>
                 </div>
                 
-                <!-- Product 2 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden">
                     <div class="relative overflow-hidden">
                         <div class="aspect-w-1 aspect-h-1 w-full">
-                            <img src="assets/images/zedline/product2.jpg" alt="Product 2" class="w-full h-full object-cover">
+                            <img src="assets/images/zedline/jersey/product2.jpg" alt="Product 2" class="w-full h-full object-cover">
                         </div>
                         <div class="product-actions absolute bottom-0 left-0 right-0 p-4 bg-white/90 transform translate-y-full transition-all duration-300">
                             <button class="w-full py-2 bg-black text-white text-sm font-medium rounded hover:bg-gray-800 transition-colors">
@@ -485,11 +699,10 @@
                     </div>
                 </div>
                 
-                <!-- Product 3 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden">
                     <div class="relative overflow-hidden">
                         <div class="aspect-w-1 aspect-h-1 w-full">
-                            <img src="assets/images/zedline/product3.jpg" alt="Product 3" class="w-full h-full object-cover">
+                            <img src="assets/images/zedline/jersey/product3.jpg" alt="Product 3" class="w-full h-full object-cover">
                         </div>
                         <div class="product-actions absolute bottom-0 left-0 right-0 p-4 bg-white/90 transform translate-y-full transition-all duration-300">
                             <button class="w-full py-2 bg-black text-white text-sm font-medium rounded hover:bg-gray-800 transition-colors">
@@ -531,11 +744,10 @@
                     </div>
                 </div>
                 
-                <!-- Product 4 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden">
                     <div class="relative overflow-hidden">
                         <div class="aspect-w-1 aspect-h-1 w-full">
-                            <img src="assets/images/zedline/product4.jpg" alt="Product 4" class="w-full h-full object-cover">
+                            <img src="assets/images/zedline/jersey/product4.jpg" alt="Product 4" class="w-full h-full object-cover">
                         </div>
                         <div class="product-actions absolute bottom-0 left-0 right-0 p-4 bg-white/90 transform translate-y-full transition-all duration-300">
                             <button class="w-full py-2 bg-black text-white text-sm font-medium rounded hover:bg-gray-800 transition-colors">
@@ -586,10 +798,10 @@
                 </a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Banner -->
-    <section class="py-16 md:py-24 bg-gray-100">
+    <!-- <section class="py-16 md:py-24 bg-gray-100">
         <div class="container mx-auto px-6">
             <div class="bg-black text-white rounded-xl overflow-hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2">
@@ -606,15 +818,15 @@
                         <p class="text-xs text-gray-400 mt-3">By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.</p>
                     </div>
                     <div class="h-64 md:h-auto">
-                        <img src="assets/images/zedline/newsletter-banner.jpg" alt="Fashion Model" class="w-full h-full object-cover">
+                        <img src="assets/images/zedline/jersey/newsletter-banner.jpg" alt="Fashion Model" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Collections -->
-    <section id="collections" class="py-16 md:py-24 bg-white">
+    <!-- <section id="collections" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Collections</h2>
@@ -623,9 +835,8 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Collection 1 -->
                 <div class="collection-card group h-96">
-                    <img src="assets/images/zedline/collection1.jpg" alt="Urban Essentials" class="w-full h-full object-cover">
+                    <img src="assets/images/zedline/jersey/collection1.jpg" alt="Urban Essentials" class="w-full h-full object-cover">
                     <div class="collection-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <h3 class="text-2xl font-bold">Urban Essentials</h3>
                         <p class="text-sm text-gray-200 mt-1">Casual styles for everyday wear</p>
@@ -635,9 +846,8 @@
                     </div>
                 </div>
                 
-                <!-- Collection 2 -->
                 <div class="collection-card group h-96">
-                    <img src="assets/images/zedline/collection2.jpg" alt="Evening Elegance" class="w-full h-full object-cover">
+                    <img src="assets/images/zedline/jersey/collection2.jpg" alt="Evening Elegance" class="w-full h-full object-cover">
                     <div class="collection-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <h3 class="text-2xl font-bold">Evening Elegance</h3>
                         <p class="text-sm text-gray-200 mt-1">Sophisticated looks for special occasions</p>
@@ -647,9 +857,8 @@
                     </div>
                 </div>
                 
-                <!-- Collection 3 -->
                 <div class="collection-card group h-96">
-                    <img src="assets/images/zedline/collection3.jpg" alt="Athleisure" class="w-full h-full object-cover">
+                    <img src="assets/images/zedline/jersey/collection3.jpg" alt="Athleisure" class="w-full h-full object-cover">
                     <div class="collection-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <h3 class="text-2xl font-bold">Athleisure</h3>
                         <p class="text-sm text-gray-200 mt-1">Comfort meets style</p>
@@ -660,10 +869,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Sale Section -->
-    <section id="sale" class="py-16 md:py-24 bg-gray-50">
+    <!-- <section id="sale" class="py-16 md:py-24 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <span class="inline-block text-pink-600 text-sm font-semibold mb-2">LIMITED TIME OFFER</span>
@@ -681,14 +890,14 @@
                     <div class="grid grid-cols-2 gap-4">
                         <a href="#" class="group">
                             <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
-                                <img src="assets/images/zedline/sale-women1.jpg" alt="Women's Sale 1" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                                <img src="assets/images/zedline/jersey/sale-women1.jpg" alt="Women's Sale 1" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
                             </div>
                             <p class="mt-2 text-sm font-medium text-gray-900">Dresses</p>
                             <p class="text-sm text-gray-500">From $29.99</p>
                         </a>
                         <a href="#" class="group">
                             <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
-                                <img src="assets/images/zedline/sale-women2.jpg" alt="Women's Sale 2" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                                <img src="assets/images/zedline/jersey/sale-women2.jpg" alt="Women's Sale 2" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
                             </div>
                             <p class="mt-2 text-sm font-medium text-gray-900">Tops</p>
                             <p class="text-sm text-gray-500">From $19.99</p>
@@ -707,14 +916,14 @@
                     <div class="grid grid-cols-2 gap-4">
                         <a href="#" class="group">
                             <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
-                                <img src="assets/images/zedline/sale-men1.jpg" alt="Men's Sale 1" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                                <img src="assets/images/zedline/jersey/sale-men1.jpg" alt="Men's Sale 1" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
                             </div>
                             <p class="mt-2 text-sm font-medium text-gray-900">Shirts</p>
                             <p class="text-sm text-gray-500">From $34.99</p>
                         </a>
                         <a href="#" class="group">
                             <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
-                                <img src="assets/images/zedline/sale-men2.jpg" alt="Men's Sale 2" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
+                                <img src="assets/images/zedline/jersey/sale-men2.jpg" alt="Men's Sale 2" class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity">
                             </div>
                             <p class="mt-2 text-sm font-medium text-gray-900">Pants</p>
                             <p class="text-sm text-gray-500">From $39.99</p>
@@ -732,7 +941,7 @@
                 </a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Features -->
     <section class="py-16 md:py-24 bg-white">
@@ -769,7 +978,7 @@
     </section>
 
     <!-- Instagram Feed -->
-    <section class="bg-gray-50 py-12">
+    <!-- <section class="bg-gray-50 py-12">
         <div class="container mx-auto px-6">
             <div class="text-center mb-8">
                 <h2 class="text-2xl md:text-3xl font-bold">Follow Us on Instagram</h2>
@@ -778,34 +987,33 @@
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-1">
-                <!-- Instagram posts would be dynamically loaded here -->
                 <a href="#" class="aspect-square overflow-hidden">
-                    <img src="assets/images/zedline/instagram1.jpg" alt="Instagram Post 1" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                    <img src="assets/images/zedline/jersey/instagram1.jpg" alt="Instagram Post 1" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
                 </a>
                 <a href="#" class="aspect-square overflow-hidden">
-                    <img src="assets/images/zedline/instagram2.jpg" alt="Instagram Post 2" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                    <img src="assets/images/zedline/jersey/instagram2.jpg" alt="Instagram Post 2" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
                 </a>
                 <a href="#" class="aspect-square overflow-hidden">
-                    <img src="assets/images/zedline/instagram3.jpg" alt="Instagram Post 3" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                    <img src="assets/images/zedline/jersey/instagram3.jpg" alt="Instagram Post 3" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
                 </a>
                 <a href="#" class="aspect-square overflow-hidden md:block hidden">
-                    <img src="assets/images/zedline/instagram4.jpg" alt="Instagram Post 4" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                    <img src="assets/images/zedline/jersey/instagram4.jpg" alt="Instagram Post 4" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
                 </a>
                 <a href="#" class="aspect-square overflow-hidden lg:block hidden">
-                    <img src="assets/images/zedline/instagram5.jpg" alt="Instagram Post 5" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                    <img src="assets/images/zedline/jersey/instagram5.jpg" alt="Instagram Post 5" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
                 </a>
                 <a href="#" class="aspect-square overflow-hidden lg:block hidden">
-                    <img src="assets/images/zedline/instagram6.jpg" alt="Instagram Post 6" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                    <img src="assets/images/zedline/jersey/instagram6.jpg" alt="Instagram Post 6" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
                 </a>
                 <a href="#" class="aspect-square overflow-hidden xl:block hidden">
-                    <img src="assets/images/zedline/instagram7.jpg" alt="Instagram Post 7" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                    <img src="assets/images/zedline/jersey/instagram7.jpg" alt="Instagram Post 7" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
                 </a>
                 <a href="#" class="aspect-square overflow-hidden xl:block hidden">
-                    <img src="assets/images/zedline/instagram8.jpg" alt="Instagram Post 8" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                    <img src="assets/images/zedline/jersey/instagram8.jpg" alt="Instagram Post 8" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
                 </a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
@@ -819,25 +1027,16 @@
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-pinterest"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div>
                 
-                <div>
+                <!-- <div>
                     <h4 class="text-white font-medium mb-4">Shop</h4>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">New Arrivals</a></li>
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Women's Collection</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">something went wrong</a></li>
                         <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Men's Collection</a></li>
                         <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Accessories</a></li>
                         <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Sale</a></li>
@@ -864,21 +1063,19 @@
                         <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Press</a></li>
                         <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Blog</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             
             <div class="border-t border-gray-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
+                <!-- <div class="flex flex-col md:flex-row justify-between items-center">
                     <p class="text-sm text-gray-500 text-center md:text-left mb-4 md:mb-0">© 2025 Zedline. All rights reserved.</p>
                     <div class="flex space-x-6">
-                        <img src="assets/images/zedline/payment-methods.png" alt="Payment Methods" class="h-6">
+                        <img src="assets/images/zedline/jersey/payment-methods.png" alt="Payment Methods" class="h-6">
                     </div>
-                </div>
+                </div> -->
                 <div class="mt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
                     <div class="flex space-x-6 mb-4 md:mb-0">
-                        <a href="#" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
-                        <a href="#" class="hover:text-gray-300 transition-colors">Terms of Service</a>
-                        <a href="#" class="hover:text-gray-300 transition-colors">Accessibility</a>
+                        <a href="https://github.com/lenixdev" class="hover:text-gray-300 transition-colors">Developer</a>
                     </div>
                     <div>
                         <p>Designed with <i class="fas fa-heart text-pink-500"></i> by Zedline Team</p>
@@ -893,9 +1090,214 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <style>
+        /* Category Carousel Styles */
+        .category-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 1;
+            pointer-events: auto;
+        }
+        
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .carousel-prev {
+            left: 15px;
+        }
+        
+        .carousel-next {
+            right: 15px;
+        }
+        
+        .group:hover .carousel-prev,
+        .group:hover .carousel-next {
+            opacity: 1;
+        }
+        
+        .carousel-prev:hover,
+        .carousel-next:hover {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        /* Ensure proper image scaling */
+        .category-carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-carousel:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+    
     <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        // Initialize category carousels
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all category carousels
+            document.querySelectorAll('.category-carousel').forEach(carousel => {
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const prevBtn = carousel.querySelector('.carousel-prev');
+                const nextBtn = carousel.querySelector('.carousel-next');
+                let currentSlide = 0;
+                let slideInterval;
+                
+                // Initialize the carousel
+                function initCarousel() {
+                    // Show first slide
+                    if (slides.length > 0) {
+                        slides.forEach((slide, index) => {
+                            if (index === 0) {
+                                slide.classList.add('active');
+                                slide.style.opacity = '1';
+                            } else {
+                                slide.classList.remove('active');
+                                slide.style.opacity = '0';
+                            }
+                        });
+                    }
+                    
+                    // Start auto-sliding
+                    startAutoSlide();
+                }
+                
+                // Start auto-sliding
+                function startAutoSlide() {
+                    stopAutoSlide();
+                    if (slides.length > 1) {
+                        slideInterval = setInterval(nextSlide, 5000);
+                    }
+                }
+                
+                // Stop auto-sliding
+                function stopAutoSlide() {
+                    if (slideInterval) {
+                        clearInterval(slideInterval);
+                    }
+                }
+                
+                // Next slide function
+                function nextSlide() {
+                    goToSlide((currentSlide + 1) % slides.length);
+                }
+                
+                // Previous slide function
+                function prevSlide() {
+                    goToSlide((currentSlide - 1 + slides.length) % slides.length);
+                }
+                
+                // Go to specific slide
+                function goToSlide(index) {
+                    if (slides.length === 0) return;
+                    
+                    // Fade out current slide
+                    slides[currentSlide].style.opacity = '0';
+                    slides[currentSlide].classList.remove('active');
+                    
+                    // Update current slide index
+                    currentSlide = index;
+                    
+                    // Fade in new slide
+                    setTimeout(() => {
+                        slides[currentSlide].style.opacity = '1';
+                        slides[currentSlide].classList.add('active');
+                    }, 10);
+                    
+                    // Restart auto-slide timer
+                    startAutoSlide();
+                }
+                
+                // Event listeners for navigation buttons
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        nextSlide();
+                    });
+                }
+                
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        prevSlide();
+                    });
+                }
+                
+                // Pause on hover
+                carousel.addEventListener('mouseenter', () => {
+                    stopAutoSlide();
+                });
+                
+                carousel.addEventListener('mouseleave', () => {
+                    startAutoSlide();
+                });
+                
+                // Touch support for mobile
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                carousel.addEventListener('touchstart', (e) => {
+                    touchStartX = e.touches[0].clientX;
+                    stopAutoSlide();
+                }, { passive: true });
+                
+                carousel.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].clientX;
+                    handleSwipe();
+                    startAutoSlide();
+                }, { passive: true });
+                
+                function handleSwipe() {
+                    const difference = touchStartX - touchEndX;
+                    if (difference > 50) {
+                        nextSlide(); // Swipe left
+                    } else if (difference < -50) {
+                        prevSlide(); // Swipe right
+                    }
+                }
+                
+                // Initialize the carousel
+                initCarousel();
+            });
+            
+            // Mobile menu toggle
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
@@ -960,6 +1362,7 @@
                 }
             });
         });
+        }); // Added missing closing brace for DOMContentLoaded
     </script>
 </body>
 </html>
