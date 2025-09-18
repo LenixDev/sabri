@@ -121,7 +121,7 @@
                 <nav class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Home</a>
                     <a href="#products" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Products</a>
-                    <a href="#categories" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Categories</a>
+                    <!-- <a href="#categories" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Categories</a> -->
                     <a href="#features" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Features</a>
                     <a href="#about" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">About</a>
                     <a href="#contact" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Contact</a>
@@ -129,17 +129,17 @@
                 
                 <!-- Icons -->
                 <div class="flex items-center space-x-4">
-                    <a href="tel:+213123456789" class="hidden md:flex items-center text-gray-700 hover:text-gray-900">
+                    <a href="tel:+21355041010656789" class="hidden md:flex items-center text-gray-700 hover:text-gray-900">
                         <i class="fas fa-phone-alt mr-2"></i>
-                        <span class="text-sm font-medium">+213 123 456 789</span>
+                        <span class="text-sm font-medium">+213 550 410 106</span>
                     </a>
-                    <button class="p-2 text-gray-600 hover:text-gray-900">
+                    <!-- <button class="p-2 text-gray-600 hover:text-gray-900">
                         <i class="fas fa-search text-lg"></i>
                     </button>
                     <button class="p-2 text-gray-600 hover:text-gray-900 relative">
                         <i class="fas fa-shopping-cart text-lg"></i>
                         <span class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
-                    </button>
+                    </button> -->
                     
                     <!-- Mobile menu button -->
                     <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 hover:text-gray-900">
@@ -183,6 +183,9 @@
                     </a>
                     <a href="#contact" class="px-8 py-3 border-2 border-white text-white font-medium rounded hover:bg-white/10 transition-colors text-center">
                         Contact Us
+                    </a>
+                    <a href="https://sabrilibass.site" class="px-8 py-3 bg-yellow-800 text-white font-medium rounded hover:bg-yellow-700 transition-colors text-center">
+                        Go back to Sabri
                     </a>
                 </div>
             </div>
@@ -238,7 +241,7 @@
     </section>
 
     <!-- Categories Section -->
-    <section id="categories" class="py-16 md:py-24 bg-white">
+    <section id="products" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-color);">Our Product Categories</h2>
@@ -248,64 +251,157 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Category 1 -->
-                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
-                    <img src="assets/images/arpetrogear/category1.jpg" alt="Flame Resistant Clothing" class="w-full h-full object-cover">
-                    <div class="category-overlay">
+                <div class="category-card h-80 rounded-lg overflow-hidden shadow-md relative">
+                    <div class="carousel relative h-full w-full">
+                        <div class="carousel-inner h-full w-full relative">
+                            <div class="carousel-item active h-full w-full">
+                                <img src="assets/images/arpetrogear/22.26.40_36e0a7a1.jpg" alt="Flame Resistant Clothing" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item h-full w-full">
+                                <img src="assets/images/sabri/c604b9b6-89f8-473e-b036-8516604376fb.JPG" alt="Flame Resistant Clothing 2" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item h-full w-full">
+                                <img src="assets/images/sabri/Logo Sabri.JPG" alt="Flame Resistant Clothing 3" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <button class="carousel-control prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-control next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="category-overlay">
                         <h3 class="text-xl font-bold">Flame Resistant Clothing</h3>
                         <p class="text-sm text-gray-200 mt-1">Protective gear for high-risk environments</p>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 
                 <!-- Category 2 -->
-                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
-                    <img src="assets/images/arpetrogear/category2.jpg" alt="High-Visibility Workwear" class="w-full h-full object-cover">
-                    <div class="category-overlay">
+                <div class="category-card h-80 rounded-lg overflow-hidden shadow-md relative">
+                    <div class="carousel relative h-full w-full">
+                        <div class="carousel-inner h-full w-full relative">
+                            <div class="carousel-item active h-full w-full">
+                                <img src="assets/images/arpetrogear/22.26.40_36e0a7a1.jpg" alt="High-Visibility Workwear" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item h-full w-full">
+                                <img src="assets/images/sabri/Logo Sabri.JPG" alt="High-Visibility Workwear 2" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <button class="carousel-control prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-control next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="category-overlay">
                         <h3 class="text-xl font-bold">High-Visibility Workwear</h3>
                         <p class="text-sm text-gray-200 mt-1">Stay visible in low-light conditions</p>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 
                 <!-- Category 3 -->
-                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
-                    <img src="assets/images/arpetrogear/category3.jpg" alt="Coveralls & Overalls" class="w-full h-full object-cover">
-                    <div class="category-overlay">
+                <div class="category-card h-80 rounded-lg overflow-hidden shadow-md relative">
+                    <div class="carousel relative h-full w-full">
+                        <div class="carousel-inner h-full w-full relative">
+                            <div class="carousel-item active h-full w-full">
+                                <img src="assets/images/arpetrogear/22.26.40_36e0a7a1.jpg" alt="Coveralls & Overalls" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item h-full w-full">
+                                <img src="assets/images/sabri/Logo Sabri.JPG" alt="Coveralls & Overalls 2" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <button class="carousel-control prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-control next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="category-overlay">
                         <h3 class="text-xl font-bold">Coveralls & Overalls</h3>
                         <p class="text-sm text-gray-200 mt-1">Full-body protection for industrial work</p>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 
                 <!-- Category 4 -->
-                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
-                    <img src="assets/images/arpetrogear/category4.jpg" alt="Safety Footwear" class="w-full h-full object-cover">
-                    <div class="category-overlay">
+                <div class="category-card h-80 rounded-lg overflow-hidden shadow-md relative">
+                    <div class="carousel relative h-full w-full">
+                        <div class="carousel-inner h-full w-full relative">
+                            <div class="carousel-item active h-full w-full">
+                                <img src="assets/images/arpetrogear/22.26.40_36e0a7a1.jpg" alt="Safety Footwear" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item h-full w-full">
+                                <img src="assets/images/sabri/Logo Sabri.JPG" alt="Safety Footwear 2" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <button class="carousel-control prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-control next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="category-overlay">
                         <h3 class="text-xl font-bold">Safety Footwear</h3>
                         <p class="text-sm text-gray-200 mt-1">Protective boots for hazardous environments</p>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 
                 <!-- Category 5 -->
-                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
-                    <img src="assets/images/arpetrogear/category5.jpg" alt="Head & Face Protection" class="w-full h-full object-cover">
-                    <div class="category-overlay">
+                <div class="category-card h-80 rounded-lg overflow-hidden shadow-md relative">
+                    <div class="carousel relative h-full w-full">
+                        <div class="carousel-inner h-full w-full relative">
+                            <div class="carousel-item active h-full w-full">
+                                <img src="assets/images/arpetrogear/22.26.40_36e0a7a1.jpg" alt="Head & Face Protection" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item h-full w-full">
+                                <img src="assets/images/sabri/Logo Sabri.JPG" alt="Head & Face Protection 2" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <button class="carousel-control prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-control next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="category-overlay">
                         <h3 class="text-xl font-bold">Head & Face Protection</h3>
                         <p class="text-sm text-gray-200 mt-1">Helmets, face shields, and more</p>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 
                 <!-- Category 6 -->
-                <a href="#" class="category-card h-80 rounded-lg overflow-hidden shadow-md">
-                    <img src="assets/images/arpetrogear/category6.jpg" alt="Winter Workwear" class="w-full h-full object-cover">
-                    <div class="category-overlay">
+                <div class="category-card h-80 rounded-lg overflow-hidden shadow-md relative">
+                    <div class="carousel relative h-full w-full">
+                        <div class="carousel-inner h-full w-full relative">
+                            <div class="carousel-item active h-full w-full">
+                                <img src="assets/images/arpetrogear/22.26.40_36e0a7a1.jpg" alt="Winter Workwear" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item h-full w-full">
+                                <img src="assets/images/sabri/Logo Sabri.JPG" alt="Winter Workwear 2" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <button class="carousel-control prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-control next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="category-overlay">
                         <h3 class="text-xl font-bold">Winter Workwear</h3>
                         <p class="text-sm text-gray-200 mt-1">Insulated protection for cold conditions</p>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="py-16 md:py-24 bg-gray-50">
+    <!-- <section id="products" class="py-16 md:py-24 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center mb-12">
                 <div class="text-center md:text-left mb-6 md:mb-0">
@@ -330,7 +426,6 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <!-- Product 1 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden">
                     <div class="relative overflow-hidden h-64">
                         <img src="assets/images/arpetrogear/product1.jpg" alt="FR Coverall" class="w-full h-full object-cover">
@@ -367,7 +462,6 @@
                     </div>
                 </div>
                 
-                <!-- Product 2 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden">
                     <div class="relative overflow-hidden h-64">
                         <img src="assets/images/arpetrogear/product2.jpg" alt="Safety Boots" class="w-full h-full object-cover">
@@ -404,7 +498,6 @@
                     </div>
                 </div>
                 
-                <!-- Product 3 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden">
                     <div class="relative overflow-hidden h-64">
                         <img src="assets/images/arpetrogear/product3.jpg" alt="Hi-Vis Jacket" class="w-full h-full object-cover">
@@ -441,7 +534,6 @@
                     </div>
                 </div>
                 
-                <!-- Product 4 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden">
                     <div class="relative overflow-hidden h-64">
                         <img src="assets/images/arpetrogear/product4.jpg" alt="Hard Hat" class="w-full h-full object-cover">
@@ -485,14 +577,14 @@
                 </a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- About Section -->
     <section id="about" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
-                    <img src="assets/images/arpetrogear/about.jpg" alt="About AR Petro Gear" class="rounded-lg shadow-xl w-full">
+                    <img src="assets/images/arpetrogear/22.26.40_36e0a7a1.JPG" alt="About AR Petro Gear" class="rounded-lg shadow-xl w-full">
                 </div>
                 <div class="lg:w-1/2">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--primary-color);">About AR Petro Gear</h2>
@@ -560,7 +652,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-16 md:py-24 bg-gray-50">
+    <!-- <section class="py-16 md:py-24 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-color);">What Our Clients Say</h2>
@@ -569,7 +661,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
                 <div class="bg-white p-8 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="text-yellow-400 text-2xl">★★★★★</div>
@@ -584,7 +675,6 @@
                     </div>
                 </div>
                 
-                <!-- Testimonial 2 -->
                 <div class="bg-white p-8 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="text-yellow-400 text-2xl">★★★★★</div>
@@ -599,7 +689,6 @@
                     </div>
                 </div>
                 
-                <!-- Testimonial 3 -->
                 <div class="bg-white p-8 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="text-yellow-400 text-2xl">★★★★☆</div>
@@ -622,7 +711,7 @@
                 </a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- CTA Section -->
     <section class="py-16 md:py-24 text-white" style="background-color: var(--primary-color);">
@@ -630,11 +719,11 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Equip Your Team?</h2>
             <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">Contact us today to discuss your industrial workwear and safety equipment needs.</p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#contact" class="px-8 py-3 bg-white text-blue-900 font-medium rounded hover:bg-gray-100 transition-colors">
+                <!-- <a href="#contact" class="px-8 py-3 bg-white text-blue-900 font-medium rounded hover:bg-gray-100 transition-colors">
                     Request a Quote
-                </a>
-                <a href="tel:+213123456789" class="px-8 py-3 border-2 border-white font-medium rounded hover:bg-white/10 transition-colors">
-                    <i class="fas fa-phone-alt mr-2"></i> +213 123 456 789
+                </a> -->
+                <a href="tel:+21355041010656789" class="px-8 py-3 border-2 border-white font-medium rounded hover:bg-white/10 transition-colors">
+                    <i class="fas fa-phone-alt mr-2"></i> +213 550 410 106
                 </a>
             </div>
         </div>
@@ -650,7 +739,7 @@
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
+                <!-- <div>
                     <h3 class="text-xl font-semibold mb-6">Send us a message</h3>
                     <form class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -687,13 +776,13 @@
                             Send Message
                         </button>
                     </form>
-                </div>
+                </div> -->
                 
                 <div>
                     <h3 class="text-xl font-semibold mb-6">Our Information</h3>
                     <div class="bg-gray-50 p-8 rounded-lg h-full">
                         <div class="space-y-8">
-                            <div class="flex items-start">
+                            <!-- <div class="flex items-start">
                                 <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
@@ -701,7 +790,7 @@
                                     <h4 class="font-medium text-gray-900">Head Office</h4>
                                     <p class="mt-1 text-gray-600">123 Industrial Zone, Sidi M'Hamed<br>Algiers, Algeria</p>
                                 </div>
-                            </div>
+                            </div> -->
                             
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
@@ -710,8 +799,7 @@
                                 <div class="ml-4">
                                     <h4 class="font-medium text-gray-900">Phone</h4>
                                     <p class="mt-1 text-gray-600">
-                                        +213 123 456 789 (Sales)<br>
-                                        +213 123 456 788 (Support)
+                                        +213 550 410 106
                                     </p>
                                 </div>
                             </div>
@@ -723,8 +811,7 @@
                                 <div class="ml-4">
                                     <h4 class="font-medium text-gray-900">Email</h4>
                                     <p class="mt-1 text-gray-600">
-                                        sales@arpetrogear.com<br>
-                                        support@arpetrogear.com
+                                        contact@sabrilibass.com
                                     </p>
                                 </div>
                             </div>
@@ -736,15 +823,14 @@
                                 <div class="ml-4">
                                     <h4 class="font-medium text-gray-900">Business Hours</h4>
                                     <p class="mt-1 text-gray-600">
-                                        Monday - Friday: 8:00 AM - 5:00 PM<br>
-                                        Saturday: 9:00 AM - 1:00 PM<br>
-                                        Sunday: Closed
+                                        Saturday - Thursday: 8:00 AM - 6:00 PM<br>
+                                        Friday: Closed
                                     </p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="mt-12">
+                        <!-- <div class="mt-12">
                             <h4 class="font-medium text-gray-900 mb-4">Follow Us</h4>
                             <div class="flex space-x-4">
                                 <a href="#" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors">
@@ -763,7 +849,7 @@
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -773,7 +859,7 @@
     <!-- Map Section -->
     <div class="h-96 w-full">
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102623.8216328087!2d3.0588227!3d36.7537683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128e511d40ec1f2b%3A0x5e5f2b8b7b0a3b0!2sAlgiers%2C%20Algeria!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d673.4182794447543!2d4.201585995721041!3d35.22993313466093!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128bb3ab960eb74f%3A0xb7a5ee9fbdae6968!2z2LXYp9io2LHZiiDZhNio2KfYsyDZgdin2LTZhg!5e1!3m2!1sfr!2sus!4v1757846652926!5m2!1sfr!2sus" 
             width="100%" 
             height="100%" 
             style="border:0;" 
@@ -794,12 +880,6 @@
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
@@ -810,7 +890,7 @@
                     <ul class="space-y-2">
                         <li><a href="#home" class="text-sm text-gray-400 hover:text-white transition-colors">Home</a></li>
                         <li><a href="#products" class="text-sm text-gray-400 hover:text-white transition-colors">Products</a></li>
-                        <li><a href="#categories" class="text-sm text-gray-400 hover:text-white transition-colors">Categories</a></li>
+                        <!-- <li><a href="#categories" class="text-sm text-gray-400 hover:text-white transition-colors">Categories</a></li> -->
                         <li><a href="#features" class="text-sm text-gray-400 hover:text-white transition-colors">Features</a></li>
                         <li><a href="#about" class="text-sm text-gray-400 hover:text-white transition-colors">About Us</a></li>
                         <li><a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors">Contact</a></li>
@@ -820,16 +900,16 @@
                 <div>
                     <h3 class="text-white text-lg font-semibold mb-4">Product Categories</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Flame Resistant Clothing</a></li>
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">High-Visibility Workwear</a></li>
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Coveralls & Overalls</a></li>
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Safety Footwear</a></li>
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Head & Face Protection</a></li>
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Winter Workwear</a></li>
+                        <li><a href="#product1" class="text-sm text-gray-400 hover:text-white transition-colors">Flame Resistant Clothing</a></li>
+                        <li><a href="#product2" class="text-sm text-gray-400 hover:text-white transition-colors">High-Visibility Workwear</a></li>
+                        <li><a href="#product3" class="text-sm text-gray-400 hover:text-white transition-colors">Coveralls & Overalls</a></li>
+                        <li><a href="#product4" class="text-sm text-gray-400 hover:text-white transition-colors">Safety Footwear</a></li>
+                        <li><a href="#product5" class="text-sm text-gray-400 hover:text-white transition-colors">Head & Face Protection</a></li>
+                        <li><a href="#product6" class="text-sm text-gray-400 hover:text-white transition-colors">Winter Workwear</a></li>
                     </ul>
                 </div>
                 
-                <div>
+                <!-- <div>
                     <h3 class="text-white text-lg font-semibold mb-4">Newsletter</h3>
                     <p class="text-sm text-gray-400 mb-4">Subscribe to our newsletter for the latest updates, products, and offers.</p>
                     <form class="space-y-3">
@@ -838,15 +918,13 @@
                             Subscribe
                         </button>
                     </form>
-                </div>
+                </div> -->
             </div>
             
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-sm text-gray-500 text-center md:text-left mb-4 md:mb-0">© 2025 AR Petro Gear. All rights reserved.</p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Sitemap</a>
+                    <a href="https://github.com/lenixdev" class="text-sm text-gray-400 hover:text-white transition-colors">Developer</a>
                 </div>
             </div>
         </div>
@@ -857,59 +935,285 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <style>
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+            will-change: transform;
+        }
+        
+        .carousel-item {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: opacity 0.3s ease;
+        }
+        
+        .carousel-item:not(.active) {
+            display: none;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .carousel:hover .carousel-control {
+            opacity: 1;
+        }
+        
+        .carousel-control:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .carousel-control.prev {
+            left: 10px;
+        }
+        
+        .carousel-control.next {
+            right: 10px;
+        }
+        
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            height: 320px;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 1.25rem;
+            text-decoration: none;
+            z-index: 2;
+        }
+    </style>
+    
     <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all carousels
+            const carousels = document.querySelectorAll('.carousel');
+            
+            carousels.forEach(carousel => {
+                const inner = carousel.querySelector('.carousel-inner');
+                const items = carousel.querySelectorAll('.carousel-item');
+                const prevBtn = carousel.querySelector('.prev');
+                const nextBtn = carousel.querySelector('.next');
+                let currentIndex = 0;
+                let isTransitioning = false;
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    
-                    // Calculate header height for offset
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    // Scroll to target
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
+                // Show first item and hide others
+                function initializeCarousel() {
+                    items.forEach((item, index) => {
+                        if (index === 0) {
+                            item.classList.add('active');
+                            item.style.display = 'block';
+                        } else {
+                            item.classList.remove('active');
+                            item.style.display = 'none';
+                        }
                     });
                 }
+                
+                // Next slide function
+                function nextSlide() {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+                    
+                    items[currentIndex].classList.remove('active');
+                    items[currentIndex].style.display = 'none';
+                    
+                    currentIndex = (currentIndex + 1) % items.length;
+                    
+                    items[currentIndex].style.display = 'block';
+                    // Force reflow
+                    void items[currentIndex].offsetWidth;
+                    items[currentIndex].classList.add('active');
+                    
+                    // Reset transition flag after animation completes
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 500);
+                }
+                
+                // Previous slide function
+                function prevSlide() {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+                    
+                    items[currentIndex].classList.remove('active');
+                    items[currentIndex].style.display = 'none';
+                    
+                    currentIndex = (currentIndex - 1 + items.length) % items.length;
+                    
+                    items[currentIndex].style.display = 'block';
+                    // Force reflow
+                    void items[currentIndex].offsetWidth;
+                    items[currentIndex].classList.add('active');
+                    
+                    // Reset transition flag after animation completes
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 500);
+                }
+                
+                // Initialize the carousel
+                initializeCarousel();
+                
+                // Event listeners for buttons
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        nextSlide();
+                    });
+                }
+                
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        prevSlide();
+                    });
+                }
+                
+                // Touch support for mobile
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                carousel.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+                
+                carousel.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                }, { passive: true });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50; // Minimum swipe distance in pixels
+                    
+                    if (touchStartX - touchEndX > swipeThreshold) {
+                        // Swipe left - go to next slide
+                        nextSlide();
+                    } else if (touchEndX - touchStartX > swipeThreshold) {
+                        // Swipe right - go to previous slide
+                        prevSlide();
+                    }
+                }
+            });
+            
+            // Back to top button functionality
+            const backToTopButton = document.getElementById('back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.remove('opacity-0', 'invisible');
+                        backToTopButton.classList.add('opacity-100', 'visible');
+                    } else {
+                        backToTopButton.classList.remove('opacity-100', 'visible');
+                        backToTopButton.classList.add('opacity-0', 'invisible');
+                    }
+                });
+                
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                    mobileMenuButton.setAttribute('aria-expanded', !expanded);
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                    if (mobileMenuButton) mobileMenuButton.setAttribute('aria-expanded', 'false');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#' || targetId.startsWith('#')) {
+                        e.preventDefault();
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Close mobile menu if open
+                            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                                mobileMenu.classList.add('hidden');
+                                if (mobileMenuButton) mobileMenuButton.setAttribute('aria-expanded', 'false');
+                            }
+                        }
+                    }
+                });
             });
         });
     </script>
