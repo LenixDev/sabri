@@ -79,14 +79,19 @@
             font-size: 24px;
         }
         
+        /* Fixed Carousel and Category Card Styles */
         .category-card {
             position: relative;
             overflow: hidden;
             border-radius: 8px;
+            height: 400px; /* Increased height */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .category-card img {
-            transition: transform 0.5s ease;
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
         .category-card:hover img {
@@ -98,9 +103,110 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 50%, transparent 100%);
             padding: 30px 20px 20px;
             color: white;
+            text-decoration: none;
+            z-index: 2;
+        }
+        
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .carousel-item.active {
+            opacity: 1;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            backdrop-filter: blur(4px);
+        }
+        
+        .category-card:hover .carousel-control {
+            opacity: 1;
+        }
+        
+        .carousel-control:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-control.prev {
+            left: 15px;
+        }
+        
+        .carousel-control.next {
+            right: 15px;
+        }
+        
+        /* Carousel indicators */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .carousel-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-indicator.active {
+            background: white;
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -121,7 +227,6 @@
                 <nav class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Home</a>
                     <a href="#products" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Products</a>
-                    <!-- <a href="#categories" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Categories</a> -->
                     <a href="#features" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Features</a>
                     <a href="#about" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">About</a>
                     <a href="#contact" class="nav-link text-sm font-medium text-gray-700 hover:text-gray-900">Contact</a>
@@ -133,13 +238,6 @@
                         <i class="fas fa-phone-alt mr-2"></i>
                         <span class="text-sm font-medium">+213 550 410 106</span>
                     </a>
-                    <!-- <button class="p-2 text-gray-600 hover:text-gray-900">
-                        <i class="fas fa-search text-lg"></i>
-                    </button>
-                    <button class="p-2 text-gray-600 hover:text-gray-900 relative">
-                        <i class="fas fa-shopping-cart text-lg"></i>
-                        <span class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
-                    </button> -->
                     
                     <!-- Mobile menu button -->
                     <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 hover:text-gray-900">
@@ -153,7 +251,6 @@
                 <div class="flex flex-col space-y-3">
                     <a href="#home" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">Home</a>
                     <a href="#products" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">Products</a>
-                    <a href="#categories" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">Categories</a>
                     <a href="#features" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">Features</a>
                     <a href="#about" class="block py-2 text-gray-700 hover:text-gray-900 border-b border-gray-100">About</a>
                     <a href="#contact" class="block py-2 text-gray-700 hover:text-gray-900">Contact</a>
@@ -249,242 +346,80 @@
                 <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <!-- Category 1 -->
-                <div class="category-card h-80 rounded-lg overflow-hidden shadow-md relative">
-                    <div class="carousel relative h-full w-full">
-                        <div class="carousel-inner h-full w-full relative">
-                            <div class="carousel-item active h-full w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Category 1 - Flame Resistant Clothing -->
+                <div class="category-card">
+                    <div class="carousel" data-carousel="flame-resistant">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
                                 <img loading="lazy" src="assets/images/arpetrogear/combi6.jpg" alt="Flame Resistant Clothing" class="w-full h-full object-cover">
                             </div>
-                            <div class="carousel-item h-full w-full">
+                            <div class="carousel-item">
                                 <img loading="lazy" src="assets/images/arpetrogear/combinaison-ignifugee-a3afm.jpg" alt="Flame Resistant Clothing 2" class="w-full h-full object-cover">
                             </div>
-                            <div class="carousel-item h-full w-full">
+                            <div class="carousel-item">
                                 <img loading="lazy" src="assets/images/arpetrogear/combi5.webp" alt="Flame Resistant Clothing 3" class="w-full h-full object-cover">
                             </div>
                         </div>
-                        <button class="carousel-control prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                        <button class="carousel-control prev" aria-label="Previous image">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        <button class="carousel-control next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                        <button class="carousel-control next" aria-label="Next image">
                             <i class="fas fa-chevron-right"></i>
                         </button>
+                        <div class="carousel-indicators">
+                            <div class="carousel-indicator active" data-slide="0"></div>
+                            <div class="carousel-indicator" data-slide="1"></div>
+                            <div class="carousel-indicator" data-slide="2"></div>
+                        </div>
                     </div>
-                    <a href="#" class="category-overlay">
-                        <h3 class="text-xl font-bold">Flame Resistant Clothing</h3>
-                        <p class="text-sm text-gray-200 mt-1">Protective gear for high-risk environments</p>
-                    </a>
+                    <div class="category-overlay">
+                        <h3 class="text-2xl font-bold mb-2">Flame Resistant Clothing</h3>
+                        <p class="text-gray-200">Protective gear for high-risk environments with advanced flame-resistant properties</p>
+                        <div class="mt-4 flex items-center text-sm text-yellow-400">
+                            <i class="fas fa-fire mr-2"></i>
+                            <span>Certified Protection</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Category 2 -->
-                <div class="category-card h-80 rounded-lg overflow-hidden shadow-md relative">
-                    <div class="carousel relative h-full w-full">
-                        <div class="carousel-inner h-full w-full relative">
-                            <div class="carousel-item active h-full w-full">
+                <!-- Category 2 - High-Visibility Workwear -->
+                <div class="category-card">
+                    <div class="carousel" data-carousel="high-visibility">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
                                 <img loading="lazy" src="assets/images/arpetrogear/combi9.jpg" alt="High-Visibility Workwear" class="w-full h-full object-cover">
                             </div>
-                            <div class="carousel-item h-full w-full">
+                            <div class="carousel-item">
                                 <img loading="lazy" src="assets/images/arpetrogear/combi8.jpg" alt="High-Visibility Workwear 2" class="w-full h-full object-cover">
                             </div>
                         </div>
-                        <button class="carousel-control prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                        <button class="carousel-control prev" aria-label="Previous image">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        <button class="carousel-control next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors">
+                        <button class="carousel-control next" aria-label="Next image">
                             <i class="fas fa-chevron-right"></i>
                         </button>
+                        <div class="carousel-indicators">
+                            <div class="carousel-indicator active" data-slide="0"></div>
+                            <div class="carousel-indicator" data-slide="1"></div>
+                        </div>
                     </div>
-                    <a href="#" class="category-overlay">
-                        <h3 class="text-xl font-bold">High-Visibility Workwear</h3>
-                        <p class="text-sm text-gray-200 mt-1">Stay visible in low-light conditions</p>
-                    </a>
+                    <div class="category-overlay">
+                        <h3 class="text-2xl font-bold mb-2">High-Visibility Workwear</h3>
+                        <p class="text-gray-200">Stay visible and safe in low-light conditions with our hi-vis collection</p>
+                        <div class="mt-4 flex items-center text-sm text-yellow-400">
+                            <i class="fas fa-eye mr-2"></i>
+                            <span>Enhanced Visibility</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <!-- <section id="products" class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
-                <div class="text-center md:text-left mb-6 md:mb-0">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-2" style="color: var(--primary-color);">Featured Products</h2>
-                    <div class="w-20 h-1 bg-yellow-500 mx-auto md:mx-0 mt-4"></div>
-                </div>
-                <div class="flex space-x-2">
-                    <button class="px-4 py-2 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 focus:outline-none">
-                        <i class="fas fa-th"></i>
-                    </button>
-                    <button class="px-4 py-2 bg-white border-t border-b border-r border-gray-300 rounded-r-lg hover:bg-gray-100 focus:outline-none">
-                        <i class="fas fa-list"></i>
-                    </button>
-                    <select class="ml-4 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none">
-                        <option>Sort by</option>
-                        <option>Newest</option>
-                        <option>Price: Low to High</option>
-                        <option>Price: High to Low</option>
-                        <option>Most Popular</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <div class="product-card bg-white rounded-lg overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
-                        <img loading="lazy" src="assets/images/arpetrogear/product1.jpg" alt="FR Coverall" class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3">
-                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
-                            <button class="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
-                                Add to Cart
-                            </button>
-                            <a href="#" class="block mt-2 text-sm text-blue-600 hover:underline">Quick View</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="font-semibold">FR Coverall Pro</h3>
-                                <p class="text-gray-600 text-sm">Flame Resistant</p>
-                            </div>
-                            <span class="font-bold text-lg" style="color: var(--primary-color);">$129.99</span>
-                        </div>
-                        <div class="mt-3 flex items-center">
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="text-sm text-gray-500 ml-2">(24)</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card bg-white rounded-lg overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
-                        <img loading="lazy" src="assets/images/arpetrogear/product2.jpg" alt="Safety Boots" class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3">
-                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
-                            <button class="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
-                                Add to Cart
-                            </button>
-                            <a href="#" class="block mt-2 text-sm text-blue-600 hover:underline">Quick View</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="font-semibold">Steel Toe Boots</h3>
-                                <p class="text-gray-600 text-sm">Safety Footwear</p>
-                            </div>
-                            <span class="font-bold text-lg" style="color: var(--primary-color);">$89.99</span>
-                        </div>
-                        <div class="mt-3 flex items-center">
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <span class="text-sm text-gray-500 ml-2">(36)</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card bg-white rounded-lg overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
-                        <img loading="lazy" src="assets/images/arpetrogear/product3.jpg" alt="Hi-Vis Jacket" class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3">
-                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
-                            <button class="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
-                                Add to Cart
-                            </button>
-                            <a href="#" class="block mt-2 text-sm text-blue-600 hover:underline">Quick View</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="font-semibold">Hi-Vis Safety Jacket</h3>
-                                <p class="text-gray-600 text-sm">High Visibility</p>
-                            </div>
-                            <span class="font-bold text-lg" style="color: var(--primary-color);">$59.99</span>
-                        </div>
-                        <div class="mt-3 flex items-center">
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="text-sm text-gray-500 ml-2">(42)</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card bg-white rounded-lg overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
-                        <img loading="lazy" src="assets/images/arpetrogear/product4.jpg" alt="Hard Hat" class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3">
-                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-gray-100 transition-colors">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 text-center opacity-0 hover:opacity-100 transition-opacity">
-                            <button class="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
-                                Add to Cart
-                            </button>
-                            <a href="#" class="block mt-2 text-sm text-blue-600 hover:underline">Quick View</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="font-semibold">Industrial Hard Hat</h3>
-                                <p class="text-gray-600 text-sm">Head Protection</p>
-                            </div>
-                            <span class="font-bold text-lg" style="color: var(--primary-color);">$34.99</span>
-                        </div>
-                        <div class="mt-3 flex items-center">
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="text-sm text-gray-500 ml-2">(18)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#" class="inline-block px-8 py-3 border-2 border-blue-600 text-blue-600 font-medium rounded hover:bg-blue-50 transition-colors">
-                    View All Products
-                </a>
-            </div>
-        </div>
-    </section> -->
-
     <!-- About Section -->
-    <section id="about" class="py-16 md:py-24 bg-white">
+    <section id="about" class="py-16 md:py-24 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
@@ -555,77 +490,12 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <!-- <section class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-color);">What Our Clients Say</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Hear from companies that trust AR Petro Gear for their industrial workwear needs</p>
-                <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 text-2xl">★★★★★</div>
-                    </div>
-                    <p class="text-gray-600 mb-6">"AR Petro Gear's flame-resistant clothing has been a game-changer for our field technicians. The quality and durability are unmatched in the industry."</p>
-                    <div class="flex items-center">
-                        <img loading="lazy" src="https://randomuser.me/api/portraits/men/32.jpg" alt="John D." class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-semibold">John D.</h4>
-                            <p class="text-sm text-gray-500">Safety Manager, PetroTech Solutions</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 text-2xl">★★★★★</div>
-                    </div>
-                    <p class="text-gray-600 mb-6">"We've been using AR Petro Gear's workwear for over 5 years now. Their products stand up to the toughest conditions on our construction sites."</p>
-                    <div class="flex items-center">
-                        <img loading="lazy" src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah K." class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-semibold">Sarah K.</h4>
-                            <p class="text-sm text-gray-500">Operations Director, BuildRight Constructions</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 text-2xl">★★★★☆</div>
-                    </div>
-                    <p class="text-gray-600 mb-6">"Great quality products and excellent customer service. Our team is very satisfied with the comfort and protection of their workwear."</p>
-                    <div class="flex items-center">
-                        <img loading="lazy" src="https://randomuser.me/api/portraits/men/68.jpg" alt="Michael T." class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-semibold">Michael T.</h4>
-                            <p class="text-sm text-gray-500">Procurement Officer, PowerGrid Utilities</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#" class="inline-flex items-center text-blue-600 font-medium hover:underline">
-                    View More Testimonials
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section> -->
-
     <!-- CTA Section -->
     <section class="py-16 md:py-24 text-white" style="background-color: var(--primary-color);">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Equip Your Team?</h2>
             <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">Contact us today to discuss your industrial workwear and safety equipment needs.</p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <!-- <a href="#contact" class="px-8 py-3 bg-white text-blue-900 font-medium rounded hover:bg-gray-100 transition-colors">
-                    Request a Quote
-                </a> -->
                 <a href="tel:+21355041010656789" class="px-8 py-3 border-2 border-white font-medium rounded hover:bg-white/10 transition-colors">
                     <i class="fas fa-phone-alt mr-2"></i> +213 550 410 106
                 </a>
@@ -642,60 +512,11 @@
                 <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- <div>
-                    <h3 class="text-xl font-semibold mb-6">Send us a message</h3>
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name <span class="text-red-500">*</span></label>
-                                <input type="text" id="first-name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            </div>
-                            <div>
-                                <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name <span class="text-red-500">*</span></label>
-                                <input type="text" id="last-name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address <span class="text-red-500">*</span></label>
-                            <input type="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company Name <span class="text-red-500">*</span></label>
-                            <input type="text" id="company" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject <span class="text-red-500">*</span></label>
-                            <input type="text" id="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message <span class="text-red-500">*</span></label>
-                            <textarea id="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
-                        </div>
-                        <button type="submit" class="w-full md:w-auto px-8 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
-                            Send Message
-                        </button>
-                    </form>
-                </div> -->
-                
+            <div class="grid grid-cols-1 lg:grid-cols-1 gap-12 max-w-2xl mx-auto">
                 <div>
                     <h3 class="text-xl font-semibold mb-6">Our Information</h3>
                     <div class="bg-gray-50 p-8 rounded-lg h-full">
                         <div class="space-y-8">
-                            <!-- <div class="flex items-start">
-                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="font-medium text-gray-900">Head Office</h4>
-                                    <p class="mt-1 text-gray-600">123 Industrial Zone, Sidi M'Hamed<br>Algiers, Algeria</p>
-                                </div>
-                            </div> -->
-                            
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
                                     <i class="fas fa-phone-alt"></i>
@@ -733,27 +554,6 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- <div class="mt-12">
-                            <h4 class="font-medium text-gray-900 mb-4">Follow Us</h4>
-                            <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-blue-400 text-white flex items-center justify-center hover:bg-blue-500 transition-colors">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center hover:bg-red-700 transition-colors">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-blue-700 text-white flex items-center justify-center hover:bg-blue-800 transition-colors">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center hover:bg-orange-600 transition-colors">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -794,7 +594,6 @@
                     <ul class="space-y-2">
                         <li><a href="#home" class="text-sm text-gray-400 hover:text-white transition-colors">Home</a></li>
                         <li><a href="#products" class="text-sm text-gray-400 hover:text-white transition-colors">Products</a></li>
-                        <!-- <li><a href="#categories" class="text-sm text-gray-400 hover:text-white transition-colors">Categories</a></li> -->
                         <li><a href="#features" class="text-sm text-gray-400 hover:text-white transition-colors">Features</a></li>
                         <li><a href="#about" class="text-sm text-gray-400 hover:text-white transition-colors">About Us</a></li>
                         <li><a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors">Contact</a></li>
@@ -813,16 +612,23 @@
                     </ul>
                 </div>
                 
-                <!-- <div>
-                    <h3 class="text-white text-lg font-semibold mb-4">Newsletter</h3>
-                    <p class="text-sm text-gray-400 mb-4">Subscribe to our newsletter for the latest updates, products, and offers.</p>
-                    <form class="space-y-3">
-                        <input type="email" placeholder="Your email address" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-white text-sm">
-                        <button type="submit" class="w-full py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700 transition-colors">
-                            Subscribe
-                        </button>
-                    </form>
-                </div> -->
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2">
+                        <li class="text-sm text-gray-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            +213 550 410 106
+                        </li>
+                        <li class="text-sm text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i>
+                            contact@sabrilibass.com
+                        </li>
+                        <li class="text-sm text-gray-400">
+                            <i class="fas fa-clock mr-2"></i>
+                            Sat-Thu: 8AM-6PM
+                        </li>
+                    </ul>
+                </div>
             </div>
             
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
@@ -835,219 +641,134 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-blue-700">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <style>
-        /* Carousel Styles */
-        .carousel {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border-radius: 0.5rem;
-        }
-        
-        .carousel-inner {
-            display: flex;
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-            will-change: transform;
-        }
-        
-        .carousel-item {
-            flex: 0 0 100%;
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transition: opacity 0.3s ease;
-        }
-        
-        .carousel-item:not(.active) {
-            display: none;
-        }
-        
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .carousel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            opacity: 0;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-        
-        .carousel:hover .carousel-control {
-            opacity: 1;
-        }
-        
-        .carousel-control:hover {
-            background: rgba(0, 0, 0, 0.7);
-        }
-        
-        .carousel-control.prev {
-            left: 10px;
-        }
-        
-        .carousel-control.next {
-            right: 10px;
-        }
-        
-        .category-card {
-            position: relative;
-            overflow: hidden;
-            height: 320px;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .category-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        
-        .category-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            padding: 1.25rem;
-            text-decoration: none;
-            z-index: 2;
-        }
-    </style>
-    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize all carousels
-            const carousels = document.querySelectorAll('.carousel');
-            
-            carousels.forEach(carousel => {
-                const inner = carousel.querySelector('.carousel-inner');
-                const items = carousel.querySelectorAll('.carousel-item');
-                const prevBtn = carousel.querySelector('.prev');
-                const nextBtn = carousel.querySelector('.next');
-                let currentIndex = 0;
-                let isTransitioning = false;
+            // Enhanced carousel functionality
+            class Carousel {
+                constructor(element) {
+                    this.carousel = element;
+                    this.inner = this.carousel.querySelector('.carousel-inner');
+                    this.items = this.carousel.querySelectorAll('.carousel-item');
+                    this.prevBtn = this.carousel.querySelector('.prev');
+                    this.nextBtn = this.carousel.querySelector('.next');
+                    this.indicators = this.carousel.querySelectorAll('.carousel-indicator');
+                    this.currentIndex = 0;
+                    this.isTransitioning = false;
+                    
+                    this.init();
+                }
                 
-                // Show first item and hide others
-                function initializeCarousel() {
-                    items.forEach((item, index) => {
-                        if (index === 0) {
-                            item.classList.add('active');
-                            item.style.display = 'block';
+                init() {
+                    // Event listeners for navigation buttons
+                    if (this.prevBtn) {
+                        this.prevBtn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            this.prevSlide();
+                        });
+                    }
+                    
+                    if (this.nextBtn) {
+                        this.nextBtn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            this.nextSlide();
+                        });
+                    }
+                    
+                    // Event listeners for indicators
+                    this.indicators.forEach((indicator, index) => {
+                        indicator.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            this.goToSlide(index);
+                        });
+                    });
+                    
+                    // Touch support for mobile
+                    this.setupTouchEvents();
+                    
+                    // Auto-play (optional)
+                    // this.setupAutoPlay();
+                }
+                
+                nextSlide() {
+                    if (this.isTransitioning) return;
+                    this.goToSlide((this.currentIndex + 1) % this.items.length);
+                }
+                
+                prevSlide() {
+                    if (this.isTransitioning) return;
+                    this.goToSlide((this.currentIndex - 1 + this.items.length) % this.items.length);
+                }
+                
+                goToSlide(index) {
+                    if (this.isTransitioning || index === this.currentIndex) return;
+                    
+                    this.isTransitioning = true;
+                    
+                    // Remove active class from current item and indicator
+                    this.items[this.currentIndex].classList.remove('active');
+                    if (this.indicators[this.currentIndex]) {
+                        this.indicators[this.currentIndex].classList.remove('active');
+                    }
+                    
+                    // Update current index
+                    this.currentIndex = index;
+                    
+                    // Add active class to new item and indicator
+                    this.items[this.currentIndex].classList.add('active');
+                    if (this.indicators[this.currentIndex]) {
+                        this.indicators[this.currentIndex].classList.add('active');
+                    }
+                    
+                    // Reset transition flag after animation completes
+                    setTimeout(() => {
+                        this.isTransitioning = false;
+                    }, 500);
+                }
+                
+                setupTouchEvents() {
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+                    
+                    this.carousel.addEventListener('touchstart', e => {
+                        touchStartX = e.changedTouches[0].screenX;
+                    }, { passive: true });
+                    
+                    this.carousel.addEventListener('touchend', e => {
+                        touchEndX = e.changedTouches[0].screenX;
+                        this.handleSwipe(touchStartX, touchEndX);
+                    }, { passive: true });
+                }
+                
+                handleSwipe(startX, endX) {
+                    const swipeThreshold = 50;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > swipeThreshold) {
+                        if (diff > 0) {
+                            this.nextSlide(); // Swipe left - next slide
                         } else {
-                            item.classList.remove('active');
-                            item.style.display = 'none';
+                            this.prevSlide(); // Swipe right - previous slide
                         }
-                    });
-                }
-                
-                // Next slide function
-                function nextSlide() {
-                    if (isTransitioning) return;
-                    isTransitioning = true;
-                    
-                    items[currentIndex].classList.remove('active');
-                    items[currentIndex].style.display = 'none';
-                    
-                    currentIndex = (currentIndex + 1) % items.length;
-                    
-                    items[currentIndex].style.display = 'block';
-                    // Force reflow
-                    void items[currentIndex].offsetWidth;
-                    items[currentIndex].classList.add('active');
-                    
-                    // Reset transition flag after animation completes
-                    setTimeout(() => {
-                        isTransitioning = false;
-                    }, 500);
-                }
-                
-                // Previous slide function
-                function prevSlide() {
-                    if (isTransitioning) return;
-                    isTransitioning = true;
-                    
-                    items[currentIndex].classList.remove('active');
-                    items[currentIndex].style.display = 'none';
-                    
-                    currentIndex = (currentIndex - 1 + items.length) % items.length;
-                    
-                    items[currentIndex].style.display = 'block';
-                    // Force reflow
-                    void items[currentIndex].offsetWidth;
-                    items[currentIndex].classList.add('active');
-                    
-                    // Reset transition flag after animation completes
-                    setTimeout(() => {
-                        isTransitioning = false;
-                    }, 500);
-                }
-                
-                // Initialize the carousel
-                initializeCarousel();
-                
-                // Event listeners for buttons
-                if (nextBtn) {
-                    nextBtn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        nextSlide();
-                    });
-                }
-                
-                if (prevBtn) {
-                    prevBtn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        prevSlide();
-                    });
-                }
-                
-                // Touch support for mobile
-                let touchStartX = 0;
-                let touchEndX = 0;
-                
-                carousel.addEventListener('touchstart', e => {
-                    touchStartX = e.changedTouches[0].screenX;
-                }, { passive: true });
-                
-                carousel.addEventListener('touchend', e => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                }, { passive: true });
-                
-                function handleSwipe() {
-                    const swipeThreshold = 50; // Minimum swipe distance in pixels
-                    
-                    if (touchStartX - touchEndX > swipeThreshold) {
-                        // Swipe left - go to next slide
-                        nextSlide();
-                    } else if (touchEndX - touchStartX > swipeThreshold) {
-                        // Swipe right - go to previous slide
-                        prevSlide();
                     }
                 }
+                
+                setupAutoPlay(interval = 5000) {
+                    setInterval(() => {
+                        if (!this.isTransitioning) {
+                            this.nextSlide();
+                        }
+                    }, interval);
+                }
+            }
+            
+            // Initialize all carousels
+            const carousels = document.querySelectorAll('.carousel');
+            carousels.forEach(carousel => {
+                new Carousel(carousel);
             });
             
             // Back to top button functionality
@@ -1097,24 +818,24 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');
-                    if (targetId === '#' || targetId.startsWith('#')) {
-                        e.preventDefault();
+                    if (targetId === '#' || !targetId.startsWith('#')) return;
+                    
+                    e.preventDefault();
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                         
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                            
-                            window.scrollTo({
-                                top: targetPosition,
-                                behavior: 'smooth'
-                            });
-                            
-                            // Close mobile menu if open
-                            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                                mobileMenu.classList.add('hidden');
-                                if (mobileMenuButton) mobileMenuButton.setAttribute('aria-expanded', 'false');
-                            }
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            if (mobileMenuButton) mobileMenuButton.setAttribute('aria-expanded', 'false');
                         }
                     }
                 });
